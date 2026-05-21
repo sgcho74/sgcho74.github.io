@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1280">
+<title>두 보고서가 짚은 신사업 후보 12개 — 단기 / 중기 / 장기 레인으로 같이 우선순위 매겨봐요</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #ffffff; font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; color: #1d1d1f; min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 56px 0 80px; -webkit-font-smoothing: antialiased; letter-spacing: -0.012em; }
+.container { width: 1280px; padding: 0 80px; display: flex; flex-direction: column; align-items: center; }
+.eyebrow { font-size: 12px; font-weight: 600; color: #6e6e73; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 14px; }
+.title { font-size: 38px; font-weight: 700; line-height: 1.16; letter-spacing: -0.028em; text-align: center; color: #1d1d1f; margin-bottom: 12px; max-width: 1100px; }
+.title em { color: #0a84a0; font-style: normal; }
+.subtitle { font-size: 15.5px; color: #6e6e73; text-align: center; max-width: 1000px; line-height: 1.55; margin-bottom: 18px; }
+.subtitle strong { color: #1d1d1f; font-weight: 600; }
+.subtitle em { color: #c97000; font-style: normal; font-weight: 700; }
+
+.legend-row { width: 100%; max-width: 1140px; display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; padding: 0 4px; font-size: 11px; color: #6e6e73; }
+.legend-row .left { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.legend-row .left .item { display: inline-flex; align-items: center; gap: 6px; }
+.legend-row .left .dot { width: 8px; height: 8px; border-radius: 50%; }
+.legend-row .left .dot.gal { background: #28a745; }
+.legend-row .left .dot.hot { background: #0066cc; }
+.legend-row .left .dot.ins { background: #af52de; }
+.legend-row .left .dot.con { background: #c97000; }
+.legend-row .left strong { color: #1d1d1f; font-weight: 700; }
+.legend-row .right strong { color: #1d1d1f; font-weight: 700; }
+
+.lanes { width: 100%; max-width: 1140px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 12px; }
+.lane { padding: 12px 12px 14px; border-radius: 14px; border: 1px solid #e0e0e0; background: #fafafa; display: flex; flex-direction: column; gap: 8px; }
+.lane.l1 { border-color: rgba(10,132,160,0.36); background: linear-gradient(180deg, rgba(10,132,160,0.045), #ffffff 60%); }
+.lane.l2 { border-color: rgba(0,102,204,0.32); background: linear-gradient(180deg, rgba(0,102,204,0.04), #ffffff 60%); }
+.lane.l3 { border-color: rgba(175,82,222,0.32); background: linear-gradient(180deg, rgba(175,82,222,0.04), #ffffff 60%); }
+.lane .lhead { display: flex; align-items: center; gap: 8px; padding: 4px 8px 8px; border-bottom: 1px dashed rgba(0,0,0,0.08); }
+.lane .lhead .ph { font-size: 10px; font-weight: 800; padding: 3px 9px; border-radius: 9999px; letter-spacing: 0.06em; text-transform: uppercase; color: #ffffff; }
+.lane.l1 .lhead .ph { background: #0a84a0; }
+.lane.l2 .lhead .ph { background: #0066cc; }
+.lane.l3 .lhead .ph { background: #af52de; }
+.lane .lhead .lt { font-size: 13.5px; font-weight: 700; color: #1d1d1f; letter-spacing: -0.012em; }
+.lane .lhead .ct { font-size: 10.5px; color: #86868b; margin-left: auto; font-weight: 600; }
+
+.cd { background: #ffffff; border: 1px solid #ececef; border-radius: 10px; padding: 11px 13px; display: flex; flex-direction: column; gap: 6px; }
+.cd .top { display: flex; align-items: center; gap: 8px; }
+.cd .top .num { font-size: 9.5px; font-weight: 800; color: #c7c7cc; letter-spacing: 0.04em; font-variant-numeric: tabular-nums; min-width: 18px; }
+.cd .top .pill { display: inline-flex; align-items: center; gap: 5px; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 9999px; letter-spacing: 0.02em; }
+.cd .top .pill .pdot { width: 6px; height: 6px; border-radius: 50%; }
+.cd .top .pill.gal { background: rgba(40,167,69,0.1); color: #28a745; }
+.cd .top .pill.gal .pdot { background: #28a745; }
+.cd .top .pill.hot { background: rgba(0,102,204,0.1); color: #0066cc; }
+.cd .top .pill.hot .pdot { background: #0066cc; }
+.cd .top .pill.ins { background: rgba(175,82,222,0.1); color: #af52de; }
+.cd .top .pill.ins .pdot { background: #af52de; }
+.cd .top .pill.con { background: rgba(201,112,0,0.12); color: #c97000; }
+.cd .top .pill.con .pdot { background: #c97000; }
+.cd .top .ex { margin-left: auto; font-size: 8.5px; font-weight: 700; color: #c97000; letter-spacing: 0.06em; padding: 1px 7px; border: 1px dashed rgba(201,112,0,0.42); border-radius: 9999px; text-transform: uppercase; }
+.cd .gantt-miss { font-size: 9.5px; color: #c97000; font-weight: 600; margin-top: -2px; padding: 2px 7px; background: rgba(201,112,0,0.08); border-radius: 4px; align-self: flex-start; }
+.cd .gantt-miss::before { content: "⚠ "; }
+.cd .name { font-size: 13.5px; font-weight: 700; color: #1d1d1f; letter-spacing: -0.012em; line-height: 1.32; }
+.cd .desc { font-size: 11.5px; color: #6e6e73; line-height: 1.5; }
+.cd .desc strong { color: #1d1d1f; font-weight: 700; }
+.cd .meta { display: flex; gap: 8px; flex-wrap: wrap; padding-top: 4px; border-top: 1px dashed #f0f0f0; margin-top: 2px; }
+.cd .meta .m { font-size: 10px; color: #86868b; font-weight: 600; }
+.cd .meta .m strong { color: #1d1d1f; font-weight: 700; }
+.cd .meta .src { font-size: 9.5px; color: #c7c7cc; margin-left: auto; }
+
+.notice { width: 100%; max-width: 1140px; padding: 12px 18px; border-radius: 12px; background: linear-gradient(135deg, rgba(255,149,0,0.06), rgba(10,132,160,0.04)); border: 1px solid rgba(255,149,0,0.24); display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+.notice svg { width: 18px; height: 18px; stroke-width: 2; color: #c97000; flex-shrink: 0; }
+.notice .txt { font-size: 12.5px; color: #1d1d1f; line-height: 1.55; }
+.notice .txt strong { color: #c97000; font-weight: 700; }
+
+.term-note { width: 100%; max-width: 1140px; padding: 10px 16px 0; margin-top: 6px; font-size: 10.5px; color: #86868b; line-height: 1.7; text-align: left; border-top: 1px dashed #e0e0e0; }
+.term-note .tlbl { display: inline-block; font-size: 9.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 7px; border-radius: 9999px; background: #f5f5f7; color: #6e6e73; margin-right: 8px; vertical-align: 1px; }
+.term-note strong { color: #1d1d1f; font-weight: 700; }
+.term-note .sep { color: #d2d2d7; margin: 0 7px; }
+
+.breadcrumb-index { position: fixed; top: 22px; right: 32px; z-index: 10000; display: flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 9999px; background: rgba(255,255,255,0.84); border: 1px solid #e0e0e0; backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); font-size: 12px; color: #6e6e73; }
+.breadcrumb-index .sep { color: #c7c7cc; } .breadcrumb-index strong { color: #1d1d1f; font-weight: 700; }
+.slide-title-index { position: fixed; top: 22px; left: 32px; z-index: 10000; max-width: 740px; padding: 8px 14px; border-radius: 9999px; background: rgba(255,255,255,0.84); border: 1px solid #e0e0e0; backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); color: #1d1d1f; font-size: 12px; font-weight: 700; white-space: nowrap; }
+.slide-nav { position: fixed; bottom: 0; left: 0; right: 0; height: 50px; background: rgba(255,255,255,0.92); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-top: 1px solid #e0e0e0; display: flex; align-items: center; justify-content: center; z-index: 9999; }
+.slide-nav-inner { width: 1280px; display: flex; align-items: center; justify-content: space-between; padding: 0 60px; }
+.slide-nav a { text-decoration: none; font-size: 14px; font-weight: 600; color: #0066cc; }
+.slide-nav .nav-center a { color: #6e6e73; font-size: 13px; font-weight: 400; }
+body { opacity: 0; animation: fadeIn 0.4s ease forwards; } body.fade-out { animation: fadeOut 0.3s ease forwards; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeOut { from { opacity: 1; } to { opacity: 0; transform: translateY(-12px); } }
+</style>
+</head>
+<body>
+<div class="slide-title-index"><span style="color:#6e6e73;font-weight:600;">ITO 관점</span><span style="color:#c7c7cc;margin:0 7px;">·</span>신사업 후보 12개 — 단기/중기/장기 레인</div>
+<div class="breadcrumb-index"><span>Part 4</span><span class="sep">›</span><span>Candidates</span><span class="sep">›</span><strong>12 / 15</strong></div>
+
+<div class="container">
+  <p class="eyebrow">SLIDE 11 · 두 보고서가 짚은 신사업 후보 모음 (12개)</p>
+  <h1 class="title">두 보고서가 짚은 신사업 후보 <em>12개</em> —<br/><em>단기 / 중기 / 장기</em> 레인으로 같이 우선순위 매겨봐요</h1>
+  <p class="subtitle">deep-research §22~24, gemini-search §4가 제시한 후보를 같은 양식으로 정리했습니다. <em>이건 "어디부터 보자"의 출발 모음</em>이고, <strong>최종 후보·우선순위·예산은 이후에 슬라이드 06의 4가지 기준에 태워서 가져갈/뺄지 같이 정리</strong>해보면 됩니다. 투자·기간 표기는 두 보고서 추정치 기준이에요.</p>
+
+  <div class="legend-row">
+    <div class="left">
+      <span class="item"><span class="dot gal"></span><strong>한화갤러리아</strong></span>
+      <span class="item"><span class="dot hot"></span><strong>한화호텔앤드리조트</strong></span>
+      <span class="item"><span class="dot ins"></span><strong>한화솔루션 인사이트</strong></span>
+      <span class="item"><span class="dot con"></span><strong>㈜한화 건설부문</strong></span>
+    </div>
+    <div class="right"><strong>출처</strong> — deep-research §22~24 · gemini-search §4</div>
+  </div>
+
+  <div class="lanes">
+    <div class="lane l1">
+      <div class="lhead">
+        <span class="ph">단기</span>
+        <span class="lt">~ 6개월 PoC·1단계</span>
+        <span class="ct">운영 접점 강한 곳부터</span>
+      </div>
+
+      <div class="cd">
+        <div class="top"><span class="num">01</span><span class="pill hot"><span class="pdot"></span>호텔/리조트</span><span class="ex">예시</span></div>
+        <div class="name">AICC · 다국어 AI 컨시어지</div>
+        <div class="desc">모바일 체크인·룸서비스·콜센터 자동화 — <strong>FAQ + 인간상담 fallback</strong></div>
+        <div class="meta"><span class="m">투자 <strong>10~18억</strong></span><span class="m">8~12명</span><span class="m">4~6개월</span><span class="src">DR §23</span></div>
+      </div>
+
+      <div class="cd">
+        <div class="top"><span class="num">02</span><span class="pill gal"><span class="pdot"></span>갤러리아</span><span class="ex">예시</span></div>
+        <div class="name">통합 CDP · 로열티 · VIP 클라이언텔링</div>
+        <div class="desc">G포인트 교차사용을 출발점으로 <strong>매출증대형 ITO</strong>로 진화</div>
+        <div class="meta"><span class="m">투자 <strong>20~35억</strong></span><span class="m">15~25명</span><span class="m">6~9개월</span><span class="src">DR §22</span></div>
+      </div>
+
+      <div class="cd">
+        <div class="top"><span class="num">03</span><span class="pill con"><span class="pdot"></span>건설</span><span class="ex">예시</span></div>
+        <div class="name">AI 안전관제 H-HIMS 2.0</div>
+        <div class="desc">CCTV 통합 + AI 영상분석 — 엣지형 아키텍처 병행 (현장 N/W 품질 대응)</div>
+        <div class="meta"><span class="m">투자 <strong>15~30억</strong></span><span class="m">12~18명</span><span class="m">4~8개월</span><span class="src">DR §24</span></div>
+      </div>
+
+      <div class="cd">
+        <div class="top"><span class="num">04</span><span class="pill hot"><span class="pdot"></span>호텔/리조트</span><span class="ex">예시</span></div>
+        <div class="name">차세대 예약 · 수익관리(RM)</div>
+        <div class="desc">PMS 연동 + 객실 수익 개선 성과공유 — <strong>리조트/호텔 분리 전환</strong></div>
+        <div class="meta"><span class="m">투자 <strong>25~45억</strong></span><span class="m">20~30명</span><span class="m">8~12개월</span><span class="src">DR §23</span></div>
+      </div>
+    </div>
+
+    <div class="lane l2">
+      <div class="lhead">
+        <span class="ph">중기</span>
+        <span class="lt">~ 12개월 확장</span>
+        <span class="ct">데이터·AI 위에 얹기</span>
+      </div>
+
+      <div class="cd">
+        <div class="top"><span class="num">05</span><span class="pill ins"><span class="pdot"></span>인사이트</span><span class="ex">예시</span></div>
+        <div class="name">안성 IDC AIOps · DCIM</div>
+        <div class="desc">디벨로퍼·운영 분리 — <strong>JV형 운영모델</strong> 설계 (인사이트 + 한화시스템)</div>
+        <div class="meta"><span class="m">투자 <strong>20~40억</strong></span><span class="m">12~20명</span><span class="m">6~9개월</span><span class="src">DR §23 · GS §4.3</span></div>
+      </div>
+
+      <div class="cd">
+        <div class="top"><span class="num">06</span><span class="pill hot"><span class="pdot"></span>호텔/리조트</span><span class="ex">예시</span></div>
+        <div class="name">에너지 · 시설 디지털트윈 (Allside)</div>
+        <div class="desc">다점포·대형시설 절감 + Allside SaaS화 — <strong>구독형 예지보전</strong></div>
+        <div class="meta"><span class="m">투자 <strong>18~30억</strong></span><span class="m">12~20명</span><span class="m">6~9개월</span><span class="src">DR §23 · GS §4.2</span></div>
+      </div>
+
+      <div class="cd">
+        <div class="top"><span class="num">07</span><span class="pill gal"><span class="pdot"></span>갤러리아</span><span class="ex">예시</span></div>
+        <div class="name">AI 수요예측 · 재고/가격 최적화</div>
+        <div class="desc">백화점·온라인몰·포인트 통합 — <strong>파일럿 매장부터</strong>(데이터 품질 편차)</div>
+        <div class="meta"><span class="m">투자 <strong>12~20억</strong></span><span class="m">10~15명</span><span class="m">4~6개월</span><span class="src">DR §22</span></div>
+      </div>
+
+      <div class="cd">
+        <div class="top"><span class="num">08</span><span class="pill gal"><span class="pdot"></span>갤러리아</span><span class="ex">예시</span></div>
+        <div class="name">AI 매장 관제 · F&amp;B 위생 SCM</div>
+        <div class="desc">한화비전 카메라 + HAIQV — <strong>VIP관·식음부터 제한 적용</strong></div>
+        <span class="gantt-miss">로드맵(슬라이드 12) 미반영 — 이후에 같이 배치</span>
+        <div class="meta"><span class="m">투자 <strong>8~15억</strong></span><span class="m">8~12명</span><span class="m">3~5개월</span><span class="src">GS §4.1</span></div>
+      </div>
+
+      <div class="cd">
+        <div class="top"><span class="num">09</span><span class="pill con"><span class="pdot"></span>건설</span><span class="ex">예시</span></div>
+        <div class="name">EV 에어 스테이션 백엔드 플랫폼</div>
+        <div class="desc">OTA · 과금 · 엣지 화재 인식 · 한전 부하 분산</div>
+        <span class="gantt-miss">로드맵(슬라이드 12) 미반영 — 이후에 같이 배치</span>
+        <div class="meta"><span class="m">투자 <strong>12~20억</strong></span><span class="m">10~14명</span><span class="m">5~7개월</span><span class="src">GS §4.4</span></div>
+      </div>
+    </div>
+
+    <div class="lane l3">
+      <div class="lhead">
+        <span class="ph">장기</span>
+        <span class="lt">12개월~ 플랫폼화</span>
+        <span class="ct">계열 데이터 통합 필요</span>
+      </div>
+
+      <div class="cd">
+        <div class="top"><span class="num">10</span><span class="pill con"><span class="pdot"></span>건설</span><span class="ex">예시</span></div>
+        <div class="name">BIM · 디지털트윈 PMIS</div>
+        <div class="desc">공정·원가·BIM·드론·IoT 통합 — <strong>사업군별 템플릿화</strong></div>
+        <div class="meta"><span class="m">투자 <strong>25~50억</strong></span><span class="m">20~35명</span><span class="m">9~14개월</span><span class="src">DR §24 · GS §4.4</span></div>
+      </div>
+
+      <div class="cd">
+        <div class="top"><span class="num">11</span><span class="pill ins"><span class="pdot"></span>인사이트</span><span class="ex">예시</span></div>
+        <div class="name">RE100 O&amp;M · VPP 그린 IDC</div>
+        <div class="desc">신재생 + 한화컨버전스 SCADA + 빅데이터 — <strong>VPP 거래 플랫폼</strong></div>
+        <div class="meta"><span class="m">투자 <strong>15~25억</strong></span><span class="m">10~16명</span><span class="m">5~8개월</span><span class="src">DR §23 · GS §4.3</span></div>
+      </div>
+
+      <div class="cd">
+        <div class="top"><span class="num">12</span><span class="pill ins"><span class="pdot"></span>그룹 통합</span><span class="ex">예시</span></div>
+        <div class="name">통합 ID · 포인트 슈퍼앱 / PMIS·ESG</div>
+        <div class="desc">갤러리아·호텔·F&amp;B·인사이트 데이터 레이크 — <strong>AI 리테일 브레인</strong> IP화</div>
+        <div class="meta"><span class="m">투자 <strong>30억+</strong></span><span class="m">25명+</span><span class="m">12개월+</span><span class="src">DR §26 · GS §5.3</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="notice">
+    <i data-lucide="alert-triangle" aria-hidden="true"></i>
+    <div class="txt"><strong>주의</strong> — 위 후보는 <strong>두 보고서 기반의 출발 모음</strong>이고, 결정된 사업 라인업이 아닙니다. 이후에 <strong>슬라이드 06의 4가지 기준</strong>(레퍼런스·마진·재포장·Tier-1 회피)으로 거른 뒤, 가져갈/보류/뺄지 같이 정리해보면 됩니다.</div>
+  </div>
+
+  <div class="term-note">
+    <span class="tlbl">용어</span>
+    <strong>CDP</strong> Customer Data Platform — 옴니채널 고객 데이터 통합<span class="sep">·</span>
+    <strong>AICC</strong> AI Contact Center — AI 컨시어지·상담 자동화<span class="sep">·</span>
+    <strong>DCIM · AIOps</strong> Data Center Infrastructure Management · AI 기반 IT 운영<span class="sep">·</span>
+    <strong>VPP</strong> Virtual Power Plant — 분산 신재생 통합 전력 거래<span class="sep">·</span>
+    <strong>DR · GS</strong> deep-research · gemini-search 출처 약어
+  </div>
+</div>
+
+<nav class="slide-nav">
+  <div class="slide-nav-inner">
+    <div class="nav-left"><a href="10-ito-affiliates.html" onclick="event.preventDefault(); navigateTo(this.href)">&larr; 이전</a></div>
+    <div class="nav-center"><a href="index.html">12 / 15</a></div>
+    <div class="nav-right"><a href="12-ito-roadmap.html" onclick="event.preventDefault(); navigateTo(this.href)">다음 &rarr;</a></div>
+  </div>
+</nav>
+<script>
+if (window.lucide) lucide.createIcons();
+function navigateTo(url) { document.body.classList.add('fade-out'); setTimeout(function() { window.location.href = url; }, 300); }
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'ArrowLeft') navigateTo('10-ito-affiliates.html');
+  if (e.key === 'ArrowRight') navigateTo('12-ito-roadmap.html');
+});
+</script>
+</body>
+</html>

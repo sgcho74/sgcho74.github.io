@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1280">
+<title>계열사 디지털 과제 매트릭스 — 호텔·갤러리아 직접 운영, 인사이트·건설 디벨로퍼 협업</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #ffffff; font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; color: #1d1d1f; min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 56px 0 80px; -webkit-font-smoothing: antialiased; letter-spacing: -0.012em; }
+.container { width: 1280px; padding: 0 80px; display: flex; flex-direction: column; align-items: center; }
+.eyebrow { font-size: 12px; font-weight: 600; color: #6e6e73; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 14px; }
+.title { font-size: 38px; font-weight: 700; line-height: 1.16; letter-spacing: -0.028em; text-align: center; color: #1d1d1f; margin-bottom: 12px; max-width: 1100px; }
+.title em { color: #0a84a0; font-style: normal; }
+.subtitle { font-size: 15.5px; color: #6e6e73; text-align: center; max-width: 1000px; line-height: 1.55; margin-bottom: 18px; }
+.subtitle strong { color: #1d1d1f; font-weight: 600; }
+
+.legend-row { width: 100%; max-width: 1120px; display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; padding: 0 4px; }
+.legend-row .left { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; font-size: 11px; color: #6e6e73; }
+.legend-row .left .item { display: inline-flex; align-items: center; gap: 6px; }
+.legend-row .left .conn { font-size: 9.5px; padding: 3px 9px; border-radius: 9999px; font-weight: 700; letter-spacing: 0.04em; }
+.legend-row .left .conn.direct { background: rgba(10,132,160,0.12); color: #0a84a0; }
+.legend-row .left .conn.via { background: #f5f5f7; color: #6e6e73; border: 1px dashed #c7c7cc; }
+.legend-row .left strong { color: #1d1d1f; font-weight: 700; }
+.legend-row .right { font-size: 10.5px; color: #86868b; }
+.legend-row .right strong { color: #1d1d1f; font-weight: 700; }
+
+.aff-grid { width: 100%; max-width: 1120px; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+.aff { padding: 16px 18px; border-radius: 14px; border: 1px solid #e0e0e0; background: #ffffff; display: flex; flex-direction: column; gap: 10px; min-height: 280px; }
+.aff.direct { border-color: rgba(10,132,160,0.32); background: linear-gradient(180deg, rgba(10,132,160,0.04), #ffffff); }
+.aff .head { display: flex; align-items: center; gap: 10px; }
+.aff .head .name { font-size: 16.5px; font-weight: 700; color: #1d1d1f; letter-spacing: -0.012em; }
+.aff .head .conn { font-size: 9px; padding: 3px 8px; border-radius: 9999px; font-weight: 700; letter-spacing: 0.04em; }
+.aff.direct .head .conn { background: rgba(10,132,160,0.14); color: #0a84a0; }
+.aff:not(.direct) .head .conn { background: #f5f5f7; color: #6e6e73; }
+.aff .ico { width: 28px; height: 28px; border-radius: 9999px; display: flex; align-items: center; justify-content: center; margin-left: auto; }
+.aff.direct .ico { background: rgba(10,132,160,0.1); } .aff.direct .ico svg { color: #0a84a0; }
+.aff:not(.direct) .ico { background: #f5f5f7; } .aff:not(.direct) .ico svg { color: #6e6e73; }
+.aff .ico svg { width: 14px; height: 14px; stroke-width: 2; }
+
+.aff .row { display: grid; grid-template-columns: 88px 1fr; gap: 10px; align-items: flex-start; padding: 7px 0; border-top: 1px dashed #ececef; }
+.aff .row:first-of-type { border-top: none; padding-top: 0; }
+.aff .row .lb { font-size: 10px; font-weight: 700; color: #6e6e73; letter-spacing: 0.06em; text-transform: uppercase; padding-top: 1px; }
+.aff .row .vl { font-size: 12px; color: #3a3a3c; line-height: 1.55; }
+.aff .row .vl strong { color: #1d1d1f; font-weight: 700; }
+.aff .row .vl .em { color: #0a84a0; font-weight: 700; }
+.aff .row.rev .vl { font-variant-numeric: tabular-nums; font-size: 12px; }
+.aff .row.rev .vl .arr { color: #c7c7cc; margin: 0 4px; }
+.aff .row.rev .vl .y { color: #1d1d1f; font-weight: 700; }
+.aff .src { font-size: 10px; color: #86868b; padding-top: 6px; border-top: 1px dashed #ececef; line-height: 1.5; }
+.aff .src .stag { display: inline-block; font-size: 9px; font-weight: 700; padding: 1px 6px; border-radius: 4px; background: #eef4ff; color: #0066cc; margin-right: 4px; vertical-align: 1px; letter-spacing: 0.04em; }
+
+.bottom-line { width: 100%; max-width: 1120px; padding: 14px 20px; border-radius: 12px; background: linear-gradient(135deg, rgba(10,132,160,0.06), rgba(0,102,204,0.04)); border: 1px solid rgba(10,132,160,0.24); display: flex; align-items: center; gap: 12px; }
+.bottom-line svg { width: 20px; height: 20px; stroke-width: 2; color: #0a84a0; flex-shrink: 0; }
+.bottom-line .txt { font-size: 13px; color: #1d1d1f; line-height: 1.55; }
+.bottom-line .txt strong { color: #0a84a0; font-weight: 700; }
+
+.term-note { width: 100%; max-width: 1120px; padding: 10px 16px 0; margin-top: 10px; font-size: 10.5px; color: #86868b; line-height: 1.7; text-align: left; border-top: 1px dashed #e0e0e0; }
+.term-note .tlbl { display: inline-block; font-size: 9.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 7px; border-radius: 9999px; background: #f5f5f7; color: #6e6e73; margin-right: 8px; vertical-align: 1px; }
+.term-note strong { color: #1d1d1f; font-weight: 700; }
+.term-note .sep { color: #d2d2d7; margin: 0 7px; }
+
+.breadcrumb-index { position: fixed; top: 22px; right: 32px; z-index: 10000; display: flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 9999px; background: rgba(255,255,255,0.84); border: 1px solid #e0e0e0; backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); font-size: 12px; color: #6e6e73; }
+.breadcrumb-index .sep { color: #c7c7cc; } .breadcrumb-index strong { color: #1d1d1f; font-weight: 700; }
+.slide-title-index { position: fixed; top: 22px; left: 32px; z-index: 10000; max-width: 740px; padding: 8px 14px; border-radius: 9999px; background: rgba(255,255,255,0.84); border: 1px solid #e0e0e0; backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); color: #1d1d1f; font-size: 12px; font-weight: 700; white-space: nowrap; }
+.slide-nav { position: fixed; bottom: 0; left: 0; right: 0; height: 50px; background: rgba(255,255,255,0.92); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-top: 1px solid #e0e0e0; display: flex; align-items: center; justify-content: center; z-index: 9999; }
+.slide-nav-inner { width: 1280px; display: flex; align-items: center; justify-content: space-between; padding: 0 60px; }
+.slide-nav a { text-decoration: none; font-size: 14px; font-weight: 600; color: #0066cc; }
+.slide-nav .nav-center a { color: #6e6e73; font-size: 13px; font-weight: 400; }
+body { opacity: 0; animation: fadeIn 0.4s ease forwards; } body.fade-out { animation: fadeOut 0.3s ease forwards; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeOut { from { opacity: 1; } to { opacity: 0; transform: translateY(-12px); } }
+</style>
+</head>
+<body>
+<div class="slide-title-index"><span style="color:#6e6e73;font-weight:600;">ITO 관점</span><span style="color:#c7c7cc;margin:0 7px;">·</span>계열사 디지털 과제 매트릭스</div>
+<div class="breadcrumb-index"><span>Part 4</span><span class="sep">›</span><span>Affiliates</span><span class="sep">›</span><strong>11 / 15</strong></div>
+
+<div class="container">
+  <p class="eyebrow">SLIDE 10 · 4개 계열사 — 공개된 디지털 과제 + 한화시스템 연계 근거</p>
+  <h1 class="title">계열사 디지털 과제는 <em>이미 공개</em>돼 있어요 —<br/>호텔·갤러리아는 <em>직접 운영</em>, 인사이트·건설은 <em>디벨로퍼 협업</em></h1>
+  <p class="subtitle">두 보고서가 짚은 4개 계열사의 디지털 과제와 한화시스템 ITO 연계 근거를 한 장에 모았습니다. <strong>호텔·갤러리아는 ISMS 인증·G포인트 등 직접 운영 근거</strong>가 있고, <strong>인사이트·건설부문은 디벨로퍼·시공 가치사슬 안에서 한화시스템이 IT 운영을 받쳐주는 구조</strong>예요. 매출 수치는 한화시스템 별도 주석상 특수관계자 기타매출 기준입니다.</p>
+
+  <div class="legend-row">
+    <div class="left">
+      <span class="item"><span class="conn direct">직접 운영</span><strong>운영·계약 근거 직접 확인</strong></span>
+      <span class="item"><span class="conn via">디벨로퍼 협업</span><strong>가치사슬 매개 — 단독 계약 미공개</strong></span>
+    </div>
+    <div class="right"><strong>출처</strong> — deep-research §17·§19, gemini-search §4</div>
+  </div>
+
+  <div class="aff-grid">
+    <div class="aff direct">
+      <div class="head">
+        <span class="name">한화호텔앤드리조트</span>
+        <span class="conn">직접 운영</span>
+        <span class="ico"><i data-lucide="hotel" aria-hidden="true"></i></span>
+      </div>
+      <div class="row">
+        <div class="lb">공개 과제</div>
+        <div class="vl">인터넷 예약 시스템 <strong>ISMS 인증 ('24.9~'27.9)</strong> · <strong>모바일 체크인·디지털 예약 ('25 계획)</strong> · <strong>Allside</strong> 부동산 종합 서비스 (CGV 120개 등)</div>
+      </div>
+      <div class="row">
+        <div class="lb">연계 근거</div>
+        <div class="vl">예약 시스템 <span class="em">개인정보 처리위탁 명시</span> + 리조트/호텔 통합관리·CRM·AICC·Eagle IBS 보유</div>
+      </div>
+      <div class="row rev">
+        <div class="lb">매출 (proxy)</div>
+        <div class="vl"><span class="y">88.8</span><span class="arr">→</span><span class="y">133.9</span><span class="arr">→</span><span class="y">101.7</span> 억 (2023→25)</div>
+      </div>
+      <div class="src"><span class="stag">출처</span>deep-research §17·§19 · gemini-search §4.2</div>
+    </div>
+
+    <div class="aff direct">
+      <div class="head">
+        <span class="name">한화갤러리아</span>
+        <span class="conn">직접 운영</span>
+        <span class="ico"><i data-lucide="shopping-bag" aria-hidden="true"></i></span>
+      </div>
+      <div class="row">
+        <div class="lb">공개 과제</div>
+        <div class="vl"><strong>G포인트 교차사용</strong> (2024 한화호텔앤드리조트 등) · <strong>한화비전 AI 카메라</strong> 매장 관제 · F&amp;B 위생/SCM 자동화</div>
+      </div>
+      <div class="row">
+        <div class="lb">연계 근거</div>
+        <div class="vl">서비스/유통 영업관리·CRM·리테일 솔루션 + <span class="em">HAIQV AI 플랫폼</span>(고객 군집화·트렌드 예측)</div>
+      </div>
+      <div class="row rev">
+        <div class="lb">매출 (proxy)</div>
+        <div class="vl"><span class="y">110.8</span><span class="arr">→</span><span class="y">164.7</span><span class="arr">→</span><span class="y">125.1</span> 억 (2023→25)</div>
+      </div>
+      <div class="src"><span class="stag">출처</span>deep-research §17·§19 · gemini-search §4.1</div>
+    </div>
+
+    <div class="aff">
+      <div class="head">
+        <span class="name">한화솔루션 인사이트 부문</span>
+        <span class="conn">디벨로퍼 협업</span>
+        <span class="ico"><i data-lucide="server" aria-hidden="true"></i></span>
+      </div>
+      <div class="row">
+        <div class="lb">공개 과제</div>
+        <div class="vl"><strong>안성 알이씨 IDC</strong> (815억 · 9.9MW · 2,500억 펀드) · 도시개발·신재생·MUWA 부동산</div>
+      </div>
+      <div class="row">
+        <div class="lb">연계 근거</div>
+        <div class="vl">한화시스템이 <span class="em">마스터리스 운영</span>(책임 임대차) + SDDC·SDN·VxLAN + RE100 VPP 가능</div>
+      </div>
+      <div class="row rev">
+        <div class="lb">매출 (proxy)</div>
+        <div class="vl"><span class="y">873.5</span><span class="arr">→</span><span class="y">410.9</span><span class="arr">→</span><span class="y">444.9</span> 억 <strong style="color:#c97000;">⚠ 한화솔루션 전체</strong> <span style="font-size:10px;color:#86868b;">(인사이트 단독 분리 미공시)</span></div>
+      </div>
+      <div class="src"><span class="stag">출처</span>deep-research §17·§19 · gemini-search §4.3</div>
+    </div>
+
+    <div class="aff">
+      <div class="head">
+        <span class="name">㈜한화 건설부문</span>
+        <span class="conn">디벨로퍼 협업</span>
+        <span class="ico"><i data-lucide="hard-hat" aria-hidden="true"></i></span>
+      </div>
+      <div class="row">
+        <div class="lb">공개 과제</div>
+        <div class="vl"><strong>H-HIMS</strong> (2023) · <strong>AI 영상관제 시연</strong> (2025) · <strong>EV 에어 스테이션</strong>(혁신상) · 비주택 인프라 강화</div>
+      </div>
+      <div class="row">
+        <div class="lb">연계 근거</div>
+        <div class="vl">건설 ERP·공사관리·통합보안·스마트빌딩 + <span class="em">Vertical AI</span> 적용 가능 · 안성 IDC EPC 동반</div>
+      </div>
+      <div class="row rev">
+        <div class="lb">매출 (proxy)</div>
+        <div class="vl"><span class="y">370.6</span><span class="arr">→</span><span class="y">440.3</span><span class="arr">→</span><span class="y">393.8</span> 억 <strong style="color:#c97000;">⚠ ㈜한화 전체</strong> <span style="font-size:10px;color:#86868b;">(건설부문 단독 분리 미공시)</span></div>
+      </div>
+      <div class="src"><span class="stag">출처</span>deep-research §17·§19 · gemini-search §4.4</div>
+    </div>
+  </div>
+
+  <div class="bottom-line">
+    <i data-lucide="git-branch" aria-hidden="true"></i>
+    <div class="txt">정리하면 — <strong>"호텔·갤러리아는 운영 접점이 이미 강하고, 인사이트·건설은 가치사슬 안에서 한화시스템이 IT 운영을 받치는 그림"</strong>. 다음 장에서 두 보고서가 짚은 12개 신사업 후보를 같이 보겠습니다 (이건 공유용 제안 모음이고, 우선순위는 시간을 두고 같이 매겨보면 됩니다).</div>
+  </div>
+
+  <div class="term-note">
+    <span class="tlbl">용어</span>
+    <strong>매출 proxy</strong> 한화시스템 별도 주석의 특수관계자 기타매출 — 계열사별 단독 ITO 계약은 미공개라 근사치로 활용<span class="sep">·</span>
+    <strong>마스터리스 운영</strong> 시설 전체를 책임 임대차로 운영하며 외부 임차인에게 재임대하는 구조 (안성 알이씨 IDC)<span class="sep">·</span>
+    <strong>H-HIMS</strong> 한화 건설부문의 통합 안전관제 시스템 (Hanwha Hyper Integrated Management System)<span class="sep">·</span>
+    <strong>Allside</strong> 한화호텔앤드리조트 에스테이트 부문의 부동산 종합 서비스 브랜드
+  </div>
+</div>
+
+<nav class="slide-nav">
+  <div class="slide-nav-inner">
+    <div class="nav-left"><a href="09-ito-status.html" onclick="event.preventDefault(); navigateTo(this.href)">&larr; 이전</a></div>
+    <div class="nav-center"><a href="index.html">11 / 15</a></div>
+    <div class="nav-right"><a href="11-ito-candidates.html" onclick="event.preventDefault(); navigateTo(this.href)">다음 &rarr;</a></div>
+  </div>
+</nav>
+<script>
+if (window.lucide) lucide.createIcons();
+function navigateTo(url) { document.body.classList.add('fade-out'); setTimeout(function() { window.location.href = url; }, 300); }
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'ArrowLeft') navigateTo('09-ito-status.html');
+  if (e.key === 'ArrowRight') navigateTo('11-ito-candidates.html');
+});
+</script>
+</body>
+</html>

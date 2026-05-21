@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1280">
+<title>한 장에 같이 채워보는 Brain Dump 캔버스 — 자산·고객·아이디어·90일 가설</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #ffffff; font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; color: #1d1d1f; min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 56px 0 80px; -webkit-font-smoothing: antialiased; letter-spacing: -0.012em; }
+.container { width: 1280px; padding: 0 80px; display: flex; flex-direction: column; align-items: center; }
+.eyebrow { font-size: 12px; font-weight: 600; color: #6e6e73; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 14px; }
+.title { font-size: 40px; font-weight: 700; line-height: 1.14; letter-spacing: -0.028em; text-align: center; color: #1d1d1f; margin-bottom: 12px; max-width: 1080px; }
+.title em { color: #c97000; font-style: normal; }
+.subtitle { font-size: 16px; color: #6e6e73; text-align: center; max-width: 940px; line-height: 1.55; margin-bottom: 24px; }
+.subtitle strong { color: #1d1d1f; font-weight: 600; }
+
+.canvas { width: 100%; max-width: 1120px; border-radius: 18px; overflow: hidden; border: 1px solid #e0e0e0; background: #ffffff; margin-bottom: 16px; }
+.canvas-header { display: grid; grid-template-columns: 60px repeat(4, 1fr); background: #f5f5f7; border-bottom: 1px solid #e0e0e0; }
+.canvas-header .h { padding: 12px 14px; font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #1d1d1f; display: flex; align-items: center; gap: 6px; }
+.canvas-header .h .ico { display: inline-flex; align-items: center; justify-content: center; }
+.canvas-header .h .ico svg { width: 14px; height: 14px; stroke-width: 2; }
+.canvas-header .h.c1 { color: #0066cc; } .canvas-header .h.c1 svg { color: #0066cc; }
+.canvas-header .h.c2 { color: #d70015; } .canvas-header .h.c2 svg { color: #d70015; }
+.canvas-header .h.c3 { color: #28a745; } .canvas-header .h.c3 svg { color: #28a745; }
+.canvas-header .h.c4 { color: #af52de; } .canvas-header .h.c4 svg { color: #af52de; }
+
+.canvas-row { display: grid; grid-template-columns: 60px repeat(4, 1fr); border-bottom: 1px solid #f0f0f0; min-height: 130px; }
+.canvas-row:last-child { border-bottom: none; }
+.canvas-row .idx { padding: 16px 12px; font-size: 11px; font-weight: 700; color: #86868b; letter-spacing: 0.04em; text-transform: uppercase; display: flex; align-items: flex-start; justify-content: center; padding-top: 18px; }
+.canvas-row .idx .tag { display: inline-flex; flex-direction: column; align-items: center; gap: 4px; }
+.canvas-row .idx .tag .num { font-size: 18px; font-weight: 800; color: #1d1d1f; letter-spacing: -0.024em; line-height: 1; }
+.canvas-row .idx .tag .lens { font-size: 9px; padding: 2px 6px; border-radius: 9999px; background: #f5f5f7; color: #6e6e73; font-weight: 700; letter-spacing: 0.04em; }
+.canvas-row.ex .idx .tag .lens.l1 { background: rgba(0,102,204,0.12); color: #0066cc; }
+.canvas-row.ex .idx .tag .lens.l2 { background: rgba(40,167,69,0.12); color: #28a745; }
+.canvas-row.ex .idx .tag .lens.l3 { background: rgba(175,82,222,0.12); color: #af52de; }
+.canvas-row .cell { padding: 14px 16px; font-size: 12.5px; color: #3a3a3c; line-height: 1.55; border-left: 1px solid #f0f0f0; }
+.canvas-row .cell strong { color: #1d1d1f; font-weight: 700; }
+.canvas-row .cell .tag-inline { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 6px; border-radius: 4px; background: #f5f5f7; color: #6e6e73; letter-spacing: 0.02em; margin-right: 4px; }
+.canvas-row.empty .cell { color: #c7c7cc; font-style: italic; font-size: 12px; }
+.canvas-row.empty .cell::before { content: ""; display: inline-block; width: 22px; height: 1px; background: #d2d2d7; vertical-align: middle; margin-right: 8px; }
+.canvas-row.ex { background: linear-gradient(180deg, rgba(0,102,204,0.025), #ffffff); }
+.canvas-row.ex.ex2 { background: linear-gradient(180deg, rgba(40,167,69,0.025), #ffffff); }
+.canvas-row.ex .cell { color: #1d1d1f; font-style: normal; }
+.canvas-row.ex .cell.hyp { color: #3a3a3c; }
+.canvas-row.ex .cell.hyp .pin { color: #0066cc; font-weight: 700; }
+.canvas-row.ex2 .cell.hyp .pin { color: #28a745; font-weight: 700; }
+
+.guide-strip { width: 100%; max-width: 1120px; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+.guide-card { padding: 14px 18px; border-radius: 14px; border: 1px solid #e0e0e0; background: #ffffff; display: flex; align-items: flex-start; gap: 10px; }
+.guide-card svg { width: 18px; height: 18px; stroke-width: 2; color: #0066cc; flex-shrink: 0; margin-top: 1px; }
+.guide-card .ct { font-size: 12.5px; color: #3a3a3c; line-height: 1.55; }
+.guide-card .ct strong { color: #1d1d1f; font-weight: 700; }
+.guide-card .ct .ex-tag { display: inline-block; font-size: 9.5px; font-weight: 700; padding: 2px 7px; border-radius: 9999px; background: rgba(0,102,204,0.1); color: #0066cc; letter-spacing: 0.04em; margin-right: 5px; vertical-align: 1px; }
+
+.term-note { width: 100%; max-width: 1120px; padding: 10px 16px 0; margin-top: 10px; font-size: 10.5px; color: #86868b; line-height: 1.7; text-align: left; border-top: 1px dashed #e0e0e0; }
+.term-note .tlbl { display: inline-block; font-size: 9.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 7px; border-radius: 9999px; background: #f5f5f7; color: #6e6e73; margin-right: 8px; vertical-align: 1px; }
+.term-note strong { color: #1d1d1f; font-weight: 700; }
+.term-note .sep { color: #d2d2d7; margin: 0 7px; }
+
+.breadcrumb-index { position: fixed; top: 22px; right: 32px; z-index: 10000; display: flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 9999px; background: rgba(255,255,255,0.84); border: 1px solid #e0e0e0; backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); font-size: 12px; color: #6e6e73; }
+.breadcrumb-index .sep { color: #c7c7cc; } .breadcrumb-index strong { color: #1d1d1f; font-weight: 700; }
+.slide-title-index { position: fixed; top: 22px; left: 32px; z-index: 10000; max-width: 740px; padding: 8px 14px; border-radius: 9999px; background: rgba(255,255,255,0.84); border: 1px solid #e0e0e0; backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); color: #1d1d1f; font-size: 12px; font-weight: 700; white-space: nowrap; }
+.slide-nav { position: fixed; bottom: 0; left: 0; right: 0; height: 50px; background: rgba(255,255,255,0.92); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-top: 1px solid #e0e0e0; display: flex; align-items: center; justify-content: center; z-index: 9999; }
+.slide-nav-inner { width: 1280px; display: flex; align-items: center; justify-content: space-between; padding: 0 60px; }
+.slide-nav a { text-decoration: none; font-size: 14px; font-weight: 600; color: #0066cc; }
+.slide-nav .nav-center a { color: #6e6e73; font-size: 13px; font-weight: 400; }
+body { opacity: 0; animation: fadeIn 0.4s ease forwards; } body.fade-out { animation: fadeOut 0.3s ease forwards; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeOut { from { opacity: 1; } to { opacity: 0; transform: translateY(-12px); } }
+</style>
+</head>
+<body>
+<div class="slide-title-index"><span style="color:#6e6e73;font-weight:600;">어떻게 찾아볼까</span><span style="color:#c7c7cc;margin:0 7px;">·</span>Brain Dump 캔버스</div>
+<div class="breadcrumb-index"><span>Part 3</span><span class="sep">›</span><span>Canvas</span><span class="sep">›</span><strong>9 / 15</strong></div>
+
+<div class="container">
+  <p class="eyebrow">SLIDE 08 · 한 장짜리 Brain Dump 캔버스 (같이 채워보는 양식)</p>
+  <h1 class="title">한 장에 같이 채워보는 <em>Brain Dump 캔버스</em> —<br/>자산 · 고객 Pain · 아이디어 영역 · 90일 검증 가설</h1>
+  <p class="subtitle">한 줄 = 한 아이디어 단위로, <strong>4칸을 채울 수 있으면 일단 후보</strong>입니다. 예시 2줄은 캔버스 사용법을 보여드리려 채워둔 것이고 — 구체 후보 결정은 아닙니다. 이어서 빈 줄을 같이 채워가면서 슬라이드 06의 4가지 기준에 태워보는 식으로 가볼 수 있어요.</p>
+
+  <div class="canvas">
+    <div class="canvas-header">
+      <div class="h">#</div>
+      <div class="h c1"><span class="ico"><i data-lucide="package" aria-hidden="true"></i></span>① 출발 자산</div>
+      <div class="h c2"><span class="ico"><i data-lucide="alert-circle" aria-hidden="true"></i></span>② 고객 Pain</div>
+      <div class="h c3"><span class="ico"><i data-lucide="lightbulb" aria-hidden="true"></i></span>③ 아이디어 영역</div>
+      <div class="h c4"><span class="ico"><i data-lucide="target" aria-hidden="true"></i></span>④ 90일 검증 가설</div>
+    </div>
+
+    <div class="canvas-row ex">
+      <div class="idx"><div class="tag"><span class="num">예시 1</span><span class="lens l1">관점 ①</span></div></div>
+      <div class="cell"><span class="tag-inline">자산 #03</span><strong>3사 이기종 ERP 통합 경험</strong> — 그룹 brownfield 운영 노하우</div>
+      <div class="cell">M&amp;A·분리로 ERP 2개+ 보유한 중견 제조 — <strong>greenfield SI 100억+·2년</strong> 견적이 부담</div>
+      <div class="cell"><strong>Brownfield 통합 영역</strong> — 기존 ERP를 바꾸지 않고 운영을 하나로 묶는 솔루션 (구체 상품명은 아직)</div>
+      <div class="cell hyp"><span class="pin">→</span> "중견 제조 brownfield 잠재 고객 <strong>2~3곳</strong>을 발굴하고, 그중 1곳에서 1-page offer 청취 받을 수 있나?" <span style="font-size:10.5px;color:#86868b;">(검증 후 다음 가설로 — 견적 50%·12개월)</span></div>
+    </div>
+
+    <div class="canvas-row ex ex2">
+      <div class="idx"><div class="tag"><span class="num">예시 2</span><span class="lens l2">관점 ②</span></div></div>
+      <div class="cell"><span class="tag-inline">자산 #06</span><strong>GPUaaS · AI/Data Platform · Vertical AI</strong> — 공식 offering, 자체 GPU Capex 보유</div>
+      <div class="cell">중견 제조·금융 — <strong>AI PoC는 했으나 Production 못 올림</strong>, GPU Capex 부담 + MLOps 인력 부재</div>
+      <div class="cell"><strong>중견 Vertical AI Factory 영역</strong> — Tier-1(FabriX·AgenticWorks)이 안 들어간 중견 90일 패키지 (상품명 아직)</div>
+      <div class="cell hyp"><span class="pin">→</span> "중견 1~2곳에 <strong>Vertical AI 템플릿·GPU·seat 모델</strong>의 1-page offer를 가져가서 의향(LOI) 받을 수 있나?" <span style="font-size:10.5px;color:#86868b;">(검증 후 다음 가설로 — 90일 Production 1건)</span></div>
+    </div>
+
+    <div class="canvas-row empty">
+      <div class="idx"><div class="tag"><span class="num">03</span></div></div>
+      <div class="cell">출발 자산을 골라보세요</div>
+      <div class="cell">그 자산이 풀어줄 수 있는 고객 Pain은?</div>
+      <div class="cell">상품 이름까지 갈 필요 X — 영역만</div>
+      <div class="cell">90일 안에 yes/no 답 나오는 한 줄 가설</div>
+    </div>
+
+    <div class="canvas-row empty">
+      <div class="idx"><div class="tag"><span class="num">04</span></div></div>
+      <div class="cell">자산 #__ 또는 자유 기재</div>
+      <div class="cell">누가 얼마나 아파하는지 1줄</div>
+      <div class="cell">어느 관점에서 보였는지 같이 표기</div>
+      <div class="cell">필요 인력·기간·LOI 가능성</div>
+    </div>
+
+    <div class="canvas-row empty">
+      <div class="idx"><div class="tag"><span class="num">05</span></div></div>
+      <div class="cell">…</div>
+      <div class="cell">…</div>
+      <div class="cell">…</div>
+      <div class="cell">…</div>
+    </div>
+  </div>
+
+  <div class="guide-strip">
+    <div class="guide-card">
+      <i data-lucide="info" aria-hidden="true"></i>
+      <div class="ct"><span class="ex-tag">사용법</span><strong>1줄 = 1 아이디어</strong>. 4칸 다 못 채우면 일단 brain dump에서 빠지고, 자산·고객 정보가 더 모이면 그때 다시 채워봅니다.</div>
+    </div>
+    <div class="guide-card">
+      <i data-lucide="filter" aria-hidden="true"></i>
+      <div class="ct"><span class="ex-tag">다음 단계</span>채워진 줄들을 <strong>슬라이드 06의 4가지 기준</strong>에 태워서 가져갈 / 보류 / 빼는 쪽으로 정리하면, 이후 진짜 후보 라운드로 넘어갑니다.</div>
+    </div>
+  </div>
+
+  <div class="term-note">
+    <span class="tlbl">용어</span>
+    <strong>Brain Dump</strong> 정리 전에 떠오르는 것을 빠르게 한 장에 모아두는 작업 (판단·우선순위는 다음 단계)<span class="sep">·</span>
+    <strong>1-page offer</strong> 1장짜리 영업 제안서 (가설 검증 용도)<span class="sep">·</span>
+    <strong>LOI</strong> Letter of Intent · 의향서 (구속력 없는 협력 의사 표시)<span class="sep">·</span>
+    <strong>PoC</strong> Proof of Concept · 개념 검증<span class="sep">·</span>
+    <strong>on-prem</strong> 고객 자체 인프라에 설치 (클라우드 SaaS의 반대)
+  </div>
+</div>
+
+<nav class="slide-nav">
+  <div class="slide-nav-inner">
+    <div class="nav-left"><a href="07-perspectives.html" onclick="event.preventDefault(); navigateTo(this.href)">&larr; 이전</a></div>
+    <div class="nav-center"><a href="index.html">9 / 15</a></div>
+    <div class="nav-right"><a href="09-ito-status.html" onclick="event.preventDefault(); navigateTo(this.href)">다음 &rarr;</a></div>
+  </div>
+</nav>
+<script>
+if (window.lucide) lucide.createIcons();
+function navigateTo(url) { document.body.classList.add('fade-out'); setTimeout(function() { window.location.href = url; }, 300); }
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'ArrowLeft') navigateTo('07-perspectives.html');
+  if (e.key === 'ArrowRight') navigateTo('09-ito-status.html');
+});
+</script>
+</body>
+</html>

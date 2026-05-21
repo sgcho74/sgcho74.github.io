@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1280">
+<title>Tier-1이 아직 손대지 않은 빈자리 3개 — 업무 깊이 · Brownfield · 중견 Vertical AI</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #ffffff; font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; color: #1d1d1f; min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 56px 0 80px; -webkit-font-smoothing: antialiased; letter-spacing: -0.012em; }
+.container { width: 1280px; padding: 0 80px; display: flex; flex-direction: column; align-items: center; }
+.eyebrow { font-size: 12px; font-weight: 600; color: #6e6e73; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 14px; }
+.title { font-size: 42px; font-weight: 700; line-height: 1.14; letter-spacing: -0.028em; text-align: center; color: #1d1d1f; margin-bottom: 14px; max-width: 1080px; }
+.title em { color: #0066cc; font-style: normal; }
+.subtitle { font-size: 17px; color: #6e6e73; text-align: center; max-width: 940px; line-height: 1.55; margin-bottom: 32px; }
+.subtitle strong { color: #1d1d1f; font-weight: 600; }
+
+.gap-grid { width: 100%; max-width: 1120px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 22px; }
+.gap-card { padding: 20px 20px; border-radius: 18px; border: 1px solid #e0e0e0; background: linear-gradient(180deg, rgba(0,102,204,0.04), #ffffff); display: flex; flex-direction: column; gap: 10px; min-height: 320px; }
+.gap-card .ghead { display: flex; align-items: center; justify-content: space-between; }
+.gap-card .gnum { font-size: 11px; font-weight: 700; color: #0066cc; letter-spacing: 0.06em; text-transform: uppercase; }
+.gap-card .gicon { width: 32px; height: 32px; border-radius: 9999px; background: rgba(0,102,204,0.08); display: flex; align-items: center; justify-content: center; }
+.gap-card .gicon svg { width: 16px; height: 16px; color: #0066cc; stroke-width: 2; }
+.gap-card .gname { font-size: 17px; font-weight: 700; color: #1d1d1f; letter-spacing: -0.012em; line-height: 1.32; }
+.gap-card .gtagline { font-size: 12.5px; color: #6e6e73; line-height: 1.45; }
+.gap-card .row { display: grid; grid-template-columns: 60px 1fr; gap: 8px; padding: 8px 0; border-top: 1px dashed #e0e0e0; font-size: 12px; }
+.gap-card .row.first { border-top: 1px solid #e0e0e0; padding-top: 10px; margin-top: 4px; }
+.gap-card .row .l { color: #86868b; font-weight: 600; font-size: 10.5px; letter-spacing: 0.04em; text-transform: uppercase; padding-top: 1px; }
+.gap-card .row .r { color: #3a3a3c; line-height: 1.5; }
+.gap-card .row .r strong { color: #1d1d1f; font-weight: 700; }
+.gap-card .row .r.han { color: #28a745; font-weight: 600; }
+
+.note-strip { width: 100%; max-width: 1120px; padding: 16px 22px; border-radius: 14px; background: linear-gradient(135deg, rgba(0,102,204,0.04), rgba(40,167,69,0.04)); border: 1px solid rgba(0,102,204,0.18); display: flex; align-items: center; gap: 14px; }
+.note-strip svg { width: 22px; height: 22px; stroke-width: 2; color: #0066cc; flex-shrink: 0; }
+.note-strip .txt { font-size: 13.5px; color: #1d1d1f; line-height: 1.55; }
+.note-strip .txt strong { color: #0066cc; font-weight: 700; }
+.note-strip .txt em { font-style: normal; color: #28a745; font-weight: 700; }
+
+.term-note { width: 100%; max-width: 1120px; padding: 10px 16px 0; margin-top: 16px; font-size: 10.5px; color: #86868b; line-height: 1.7; text-align: left; border-top: 1px dashed #e0e0e0; }
+.term-note .tlbl { display: inline-block; font-size: 9.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 7px; border-radius: 9999px; background: #f5f5f7; color: #6e6e73; margin-right: 8px; vertical-align: 1px; }
+.term-note strong { color: #1d1d1f; font-weight: 700; }
+.term-note .sep { color: #d2d2d7; margin: 0 7px; }
+
+.breadcrumb-index { position: fixed; top: 22px; right: 32px; z-index: 10000; display: flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 9999px; background: rgba(255,255,255,0.84); border: 1px solid #e0e0e0; backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); font-size: 12px; color: #6e6e73; }
+.breadcrumb-index .sep { color: #c7c7cc; } .breadcrumb-index strong { color: #1d1d1f; font-weight: 700; }
+.slide-title-index { position: fixed; top: 22px; left: 32px; z-index: 10000; max-width: 740px; padding: 8px 14px; border-radius: 9999px; background: rgba(255,255,255,0.84); border: 1px solid #e0e0e0; backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); color: #1d1d1f; font-size: 12px; font-weight: 700; white-space: nowrap; }
+.slide-nav { position: fixed; bottom: 0; left: 0; right: 0; height: 50px; background: rgba(255,255,255,0.92); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-top: 1px solid #e0e0e0; display: flex; align-items: center; justify-content: center; z-index: 9999; }
+.slide-nav-inner { width: 1280px; display: flex; align-items: center; justify-content: space-between; padding: 0 60px; }
+.slide-nav a { text-decoration: none; font-size: 14px; font-weight: 600; color: #0066cc; }
+.slide-nav .nav-center a { color: #6e6e73; font-size: 13px; font-weight: 400; }
+body { opacity: 0; animation: fadeIn 0.4s ease forwards; } body.fade-out { animation: fadeOut 0.3s ease forwards; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeOut { from { opacity: 1; } to { opacity: 0; transform: translateY(-12px); } }
+</style>
+</head>
+<body>
+<div class="slide-title-index"><span style="color:#6e6e73;font-weight:600;">어디쯤</span><span style="color:#c7c7cc;margin:0 7px;">·</span>Tier-1이 안 들어간 빈자리</div>
+<div class="breadcrumb-index"><span>Part 1</span><span class="sep">›</span><span>Where to Look</span><span class="sep">›</span><strong>5 / 15</strong></div>
+
+<div class="container">
+  <p class="eyebrow">SLIDE 04 · Tier-1이 점령하지 않은 공백 영역</p>
+  <h1 class="title">Tier-1이 아직 손대지 않은 <em>빈자리 3개</em> —<br/>업무 깊이 · Brownfield · 중견 Vertical AI</h1>
+  <p class="subtitle">"Tier-1이 들어가지 않은 자리" 라는 표현이 흔하긴 한데, 보통 <strong>① 단가가 안 맞거나 ② 비표준이라 회피하거나 ③ 규모가 작아서</strong> 그래요. 그 자리들이 우리 입장에서는 <strong>들어가볼 만한 첫 후보 영역</strong> 이 되어줍니다. 같이 봐주세요.</p>
+
+  <div class="gap-grid">
+    <div class="gap-card">
+      <div class="ghead">
+        <span class="gnum">빈자리 1</span>
+        <span class="gicon"><i data-lucide="layers" aria-hidden="true"></i></span>
+      </div>
+      <div class="gname">업무 프로세스 깊이</div>
+      <div class="gtagline">보험 코어 · 제조 MES · 중견 Vertical 도메인</div>
+      <div class="row first">
+        <div class="l">Tier-1</div>
+        <div class="r">플랫폼·하이퍼스케일러 · 규모 경쟁 중심</div>
+      </div>
+      <div class="row">
+        <div class="l">우리</div>
+        <div class="r han">EasyOne · W1NE · MES/IIoT/WMS 자산</div>
+      </div>
+      <div class="row">
+        <div class="l">왜 비어</div>
+        <div class="r">Vertical 업무는 <strong>대량 표준화 어려움</strong> → 플랫폼 사업으로 안 맞음</div>
+      </div>
+    </div>
+
+    <div class="gap-card">
+      <div class="ghead">
+        <span class="gnum">빈자리 2</span>
+        <span class="gicon"><i data-lucide="git-merge" aria-hidden="true"></i></span>
+      </div>
+      <div class="gname">Brownfield 통합</div>
+      <div class="gtagline">M&amp;A·분리로 ERP 2개+ 보유한 중견 제조</div>
+      <div class="row first">
+        <div class="l">Tier-1</div>
+        <div class="r">Greenfield 100억+ SI 선호, brownfield 회피</div>
+      </div>
+      <div class="row">
+        <div class="l">우리</div>
+        <div class="r han">3사 이기종 ERP 통합 공식 사례</div>
+      </div>
+      <div class="row">
+        <div class="l">왜 비어</div>
+        <div class="r"><strong>Scope creep · 마진 압박</strong>이 잦아서 대형 SI는 의도적으로 피함</div>
+      </div>
+    </div>
+
+    <div class="gap-card">
+      <div class="ghead">
+        <span class="gnum">빈자리 3</span>
+        <span class="gicon"><i data-lucide="cpu" aria-hidden="true"></i></span>
+      </div>
+      <div class="gname">중견 Vertical AI</div>
+      <div class="gtagline">90일 PoC→Prod 가능한 중견용 AI Factory</div>
+      <div class="row first">
+        <div class="l">Tier-1</div>
+        <div class="r">FabriX·AgenticWorks — 대기업·대규모 투자 전제</div>
+      </div>
+      <div class="row">
+        <div class="l">우리</div>
+        <div class="r han">GPUaaS + 보험·제조 Vertical 템플릿</div>
+      </div>
+      <div class="row">
+        <div class="l">왜 비어</div>
+        <div class="r">중견은 deal 단가가 작아 대형 SI <strong>영업 ROI가 안 맞음</strong></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="note-strip">
+    <i data-lucide="lightbulb" aria-hidden="true"></i>
+    <div class="txt">여기까지가 <strong>"우리가 서 있는 자리 + 시장 변화 + 빈자리 후보"</strong> 정렬이었습니다. 그럼 <em>실제로 우리가 들고 있는 자산은 얼마나 되는지</em>, 다음 장에서 한 페이지에 모아 보겠습니다.</div>
+  </div>
+
+  <div class="term-note">
+    <span class="tlbl">용어</span>
+    <strong>Brownfield / Greenfield</strong> 기존 시스템이 있는 환경 통합 / 새로 짓는 신규 구축<span class="sep">·</span>
+    <strong>Vertical</strong> 산업·업무 특화 영역 (범용 horizontal의 반대)<span class="sep">·</span>
+    <strong>PoC → Prod</strong> 개념 검증 → 운영 도입<span class="sep">·</span>
+    <strong>Scope creep</strong> 프로젝트 범위가 점점 늘어나 마진이 깎이는 현상<span class="sep">·</span>
+    <strong>Deal 단가</strong> 1건당 계약 규모
+  </div>
+</div>
+
+<nav class="slide-nav">
+  <div class="slide-nav-inner">
+    <div class="nav-left"><a href="03-peers.html" onclick="event.preventDefault(); navigateTo(this.href)">&larr; 이전</a></div>
+    <div class="nav-center"><a href="index.html">5 / 15</a></div>
+    <div class="nav-right"><a href="05-assets.html" onclick="event.preventDefault(); navigateTo(this.href)">다음 &rarr;</a></div>
+  </div>
+</nav>
+<script>
+if (window.lucide) lucide.createIcons();
+function navigateTo(url) { document.body.classList.add('fade-out'); setTimeout(function() { window.location.href = url; }, 300); }
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'ArrowLeft') navigateTo('03-peers.html');
+  if (e.key === 'ArrowRight') navigateTo('05-assets.html');
+});
+</script>
+</body>
+</html>

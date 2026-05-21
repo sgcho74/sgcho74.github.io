@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1280">
+<title>실행 로드맵 — 호텔 AICC·갤러리아 CDP·건설 AI 안전관제 3개부터 굴려보면 좋을 것 같아요</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #ffffff; font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; color: #1d1d1f; min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 56px 0 80px; -webkit-font-smoothing: antialiased; letter-spacing: -0.012em; }
+.container { width: 1280px; padding: 0 80px; display: flex; flex-direction: column; align-items: center; }
+.eyebrow { font-size: 12px; font-weight: 600; color: #6e6e73; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 14px; }
+.title { font-size: 38px; font-weight: 700; line-height: 1.16; letter-spacing: -0.028em; text-align: center; color: #1d1d1f; margin-bottom: 12px; max-width: 1100px; }
+.title em { color: #0a84a0; font-style: normal; }
+.subtitle { font-size: 15.5px; color: #6e6e73; text-align: center; max-width: 1000px; line-height: 1.55; margin-bottom: 16px; }
+.subtitle strong { color: #1d1d1f; font-weight: 600; }
+
+.context-strip { width: 100%; max-width: 1140px; padding: 12px 16px; border-radius: 12px; background: linear-gradient(135deg, rgba(10,132,160,0.06), rgba(40,167,69,0.05)); border: 1px solid rgba(10,132,160,0.24); display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
+.context-strip svg { width: 20px; height: 20px; stroke-width: 2; color: #0a84a0; flex-shrink: 0; }
+.context-strip .ctx { font-size: 12.5px; color: #1d1d1f; line-height: 1.55; }
+.context-strip .ctx .lbl { font-size: 9.5px; font-weight: 800; padding: 2px 8px; border-radius: 9999px; background: #0a84a0; color: #ffffff; letter-spacing: 0.06em; margin-right: 8px; }
+.context-strip .ctx strong { color: #0a84a0; font-weight: 700; }
+
+.gantt { width: 100%; max-width: 1140px; border: 1px solid #e0e0e0; border-radius: 14px; background: #ffffff; padding: 14px 16px 16px; margin-bottom: 14px; }
+.gantt .grid-head { display: grid; grid-template-columns: 280px repeat(6, 1fr); border-bottom: 1px solid #e0e0e0; padding-bottom: 8px; margin-bottom: 8px; }
+.gantt .grid-head .lbl { font-size: 10px; font-weight: 700; color: #6e6e73; letter-spacing: 0.06em; text-transform: uppercase; }
+.gantt .grid-head .qcol { font-size: 10px; font-weight: 700; color: #6e6e73; letter-spacing: 0.04em; text-align: center; padding: 0 4px; border-left: 1px dashed #ececef; }
+.gantt .grid-head .qcol .yr { display: block; font-size: 9px; color: #c7c7cc; font-weight: 600; margin-bottom: 1px; }
+
+.gantt .lane-grp { margin-bottom: 4px; }
+.gantt .lane-grp .gh { display: grid; grid-template-columns: 280px 1fr; padding: 6px 0 4px; align-items: center; }
+.gantt .lane-grp .gh .gtag { font-size: 9.5px; font-weight: 800; color: #ffffff; padding: 3px 9px; border-radius: 9999px; letter-spacing: 0.06em; text-transform: uppercase; display: inline-flex; gap: 6px; align-items: center; width: fit-content; }
+.gantt .lane-grp.s1 .gh .gtag { background: #0a84a0; }
+.gantt .lane-grp.s2 .gh .gtag { background: #0066cc; }
+.gantt .lane-grp.s3 .gh .gtag { background: #af52de; }
+.gantt .lane-grp .gh .ghn { font-size: 11px; color: #6e6e73; padding-left: 12px; font-weight: 500; }
+
+.gantt .row { display: grid; grid-template-columns: 280px 1fr; align-items: center; padding: 4px 0; border-top: 1px dashed #f5f5f7; }
+.gantt .row .item { display: flex; align-items: center; gap: 8px; padding-right: 12px; }
+.gantt .row .item .pdot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+.gantt .row .item .pdot.gal { background: #28a745; }
+.gantt .row .item .pdot.hot { background: #0066cc; }
+.gantt .row .item .pdot.ins { background: #af52de; }
+.gantt .row .item .pdot.con { background: #c97000; }
+.gantt .row .item .nm { font-size: 12px; font-weight: 700; color: #1d1d1f; letter-spacing: -0.008em; }
+.gantt .row .item .num { font-size: 9.5px; font-weight: 800; color: #c7c7cc; letter-spacing: 0.04em; min-width: 18px; }
+.gantt .row .track { position: relative; height: 22px; display: grid; grid-template-columns: repeat(6, 1fr); }
+.gantt .row .track .qc { border-left: 1px dashed #f0f0f0; }
+.gantt .row .track .bar { position: absolute; top: 4px; height: 14px; border-radius: 4px; display: flex; align-items: center; padding: 0 8px; font-size: 9.5px; font-weight: 700; color: #ffffff; letter-spacing: -0.005em; white-space: nowrap; }
+.gantt .row .track .bar.gal { background: #28a745; }
+.gantt .row .track .bar.hot { background: #0066cc; }
+.gantt .row .track .bar.ins { background: #af52de; }
+.gantt .row .track .bar.con { background: #c97000; }
+.gantt .row .track .bar .lo { opacity: 0.85; font-weight: 500; margin-left: 5px; }
+
+.principles { width: 100%; max-width: 1140px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 12px; }
+.princ { padding: 12px 14px; border-radius: 12px; border: 1px solid #e0e0e0; background: #ffffff; display: flex; flex-direction: column; gap: 4px; }
+.princ .step { font-size: 9.5px; font-weight: 800; color: #0a84a0; letter-spacing: 0.08em; text-transform: uppercase; }
+.princ .nm { font-size: 13px; font-weight: 700; color: #1d1d1f; letter-spacing: -0.008em; }
+.princ .ds { font-size: 11px; color: #6e6e73; line-height: 1.5; }
+.princ .ds strong { color: #1d1d1f; font-weight: 700; }
+
+.term-note { width: 100%; max-width: 1140px; padding: 10px 16px 0; margin-top: 6px; font-size: 10.5px; color: #86868b; line-height: 1.7; text-align: left; border-top: 1px dashed #e0e0e0; }
+.term-note .tlbl { display: inline-block; font-size: 9.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 7px; border-radius: 9999px; background: #f5f5f7; color: #6e6e73; margin-right: 8px; vertical-align: 1px; }
+.term-note strong { color: #1d1d1f; font-weight: 700; }
+.term-note .sep { color: #d2d2d7; margin: 0 7px; }
+
+.breadcrumb-index { position: fixed; top: 22px; right: 32px; z-index: 10000; display: flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 9999px; background: rgba(255,255,255,0.84); border: 1px solid #e0e0e0; backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); font-size: 12px; color: #6e6e73; }
+.breadcrumb-index .sep { color: #c7c7cc; } .breadcrumb-index strong { color: #1d1d1f; font-weight: 700; }
+.slide-title-index { position: fixed; top: 22px; left: 32px; z-index: 10000; max-width: 740px; padding: 8px 14px; border-radius: 9999px; background: rgba(255,255,255,0.84); border: 1px solid #e0e0e0; backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); color: #1d1d1f; font-size: 12px; font-weight: 700; white-space: nowrap; }
+.slide-nav { position: fixed; bottom: 0; left: 0; right: 0; height: 50px; background: rgba(255,255,255,0.92); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-top: 1px solid #e0e0e0; display: flex; align-items: center; justify-content: center; z-index: 9999; }
+.slide-nav-inner { width: 1280px; display: flex; align-items: center; justify-content: space-between; padding: 0 60px; }
+.slide-nav a { text-decoration: none; font-size: 14px; font-weight: 600; color: #0066cc; }
+.slide-nav .nav-center a { color: #6e6e73; font-size: 13px; font-weight: 400; }
+body { opacity: 0; animation: fadeIn 0.4s ease forwards; } body.fade-out { animation: fadeOut 0.3s ease forwards; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeOut { from { opacity: 1; } to { opacity: 0; transform: translateY(-12px); } }
+</style>
+</head>
+<body>
+<div class="slide-title-index"><span style="color:#6e6e73;font-weight:600;">ITO 관점</span><span style="color:#c7c7cc;margin:0 7px;">·</span>실행 로드맵 + 머시너리 홀딩스</div>
+<div class="breadcrumb-index"><span>Part 4</span><span class="sep">›</span><span>Roadmap</span><span class="sep">›</span><strong>13 / 15</strong></div>
+
+<div class="container">
+  <p class="eyebrow">SLIDE 12 · 단기 / 중기 / 장기 실행 로드맵 (deep-research §25 기반)</p>
+  <h1 class="title">단기 6개월부터 — <em>호텔 AICC · 갤러리아 CDP · 건설 AI 안전관제</em><br/>3개부터 굴려보면 좋을 것 같아요 <span style="font-size:18px;color:#c97000;letter-spacing:0.04em;">(예시 적용)</span></h1>
+  <p class="subtitle">deep-research §25의 Gantt 초안을 슬라이드 양식으로 옮긴 그림입니다. <strong>"운영 계정 기반의 단계적 확장"</strong> — HiON·AONCloud·HAIQV를 공통 플랫폼으로 두고 계열사별 프런트만 다르게 가져가는 구조가 비용·실패 확률 관점에서 합리적이에요. <strong style="color:#c97000;">시간축은 "시작 시점 합의 후 M0 기준 단계"</strong>로 표기 — 분기/연도 anchor가 아닙니다. 단계 폭·시작 시점 모두 이후에 동료 의견 받아 다듬어볼 예정입니다.</p>
+
+  <div class="context-strip">
+    <i data-lucide="zap" aria-hidden="true"></i>
+    <div class="ctx"><span class="lbl">Catalyst</span><strong>한화머시너리앤서비스홀딩스</strong> 2026 하반기 출범 — 테크(한화비전·로보틱스·모멘텀) + 라이프(갤러리아·호텔·아워홈) 융합. <strong>"테크·라이프 데이터 레이크"</strong> 통합 IT 인프라 수요가 단기·중기 후보를 한 단계 끌어올릴 가능성. <span style="color:#86868b;font-size:10.5px;margin-left:6px;">출처 — gemini-search §1·§4</span></div>
+  </div>
+
+  <div class="gantt">
+    <div class="grid-head">
+      <div class="lbl">아이템 <span style="font-size:9px;color:#c97000;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;margin-left:6px;">시작=M0 합의 후</span></div>
+      <div class="qcol"><span class="yr">정렬</span>M0~M3</div>
+      <div class="qcol"><span class="yr">Quick Win</span>M3~M6</div>
+      <div class="qcol"><span class="yr">확장</span>M6~M12</div>
+      <div class="qcol"><span class="yr">데이터</span>M12~M18</div>
+      <div class="qcol"><span class="yr">플랫폼</span>M18~M24</div>
+      <div class="qcol"><span class="yr">IP·외부</span>M24+</div>
+    </div>
+
+    <div class="lane-grp s1">
+      <div class="gh"><span class="gtag">단기 · Quick Win</span><span class="ghn">운영 접점 강한 곳부터 — ROI 빠른 PoC</span></div>
+
+      <div class="row">
+        <div class="item"><span class="num">01</span><span class="pdot hot"></span><span class="nm">호텔 AICC · 다국어 컨시어지</span></div>
+        <div class="track"><div class="qc"></div><div class="qc"></div><div class="qc"></div><div class="qc"></div><div class="qc"></div><div class="qc"></div>
+          <div class="bar hot" style="left: 2%; width: 24%;">PoC 4~6m<span class="lo">10~18억</span></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="item"><span class="num">02</span><span class="pdot gal"></span><span class="nm">갤러리아 CDP · 로열티 1단계</span></div>
+        <div class="track"><div class="qc"></div><div class="qc"></div><div class="qc"></div><div class="qc"></div><div class="qc"></div><div class="qc"></div>
+          <div class="bar gal" style="left: 6%; width: 32%;">1단계 6~9m<span class="lo">20~35억</span></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="item"><span class="num">03</span><span class="pdot con"></span><span class="nm">건설 AI 안전관제 H-HIMS 2.0</span></div>
+        <div class="track"><div class="qc"></div><div class="qc"></div><div class="qc"></div><div class="qc"></div><div class="qc"></div><div class="qc"></div>
+          <div class="bar con" style="left: 2%; width: 28%;">파일럿 4~8m<span class="lo">15~30억</span></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="item"><span class="num">04</span><span class="pdot hot"></span><span class="nm">호텔 차세대 예약 · 수익관리</span></div>
+        <div class="track"><div class="qc"></div><div class="qc"></div><div class="qc"></div><div class="qc"></div><div class="qc"></div><div class="qc"></div>
+          <div class="bar hot" style="left: 8%; width: 38%;">전환 8~12m<span class="lo">25~45억</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lane-grp s2">
+      <div class="gh"><span class="gtag">중기 · 데이터·AI 위에 얹기</span><span class="ghn">단기 PoC 위에 데이터·AI 모듈을 얹어 확장</span></div>
+
+      <div class="row">
+        <div class="item"><span class="num">05</span><span class="pdot ins"></span><span class="nm">인사이트 안성 IDC AIOps · DCIM</span></div>
+        <div class="track"><div class="qc"></div><div class="qc"></div><div class="qc"></div><div class="qc"></div><div class="qc"></div><div class="qc"></div>
+          <div class="bar ins" style="left: 30%; width: 32%;">JV형 6~9m<span class="lo">20~40억</span></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="item"><span class="num">06</span><span class="pdot hot"></span><span class="nm">호텔 에너지·시설 디지털트윈</span></div>
+        <div class="track"><div class="qc"></div><div class="qc"></div><div class="qc"></div><div class="qc"></div><div class="qc"></div><div class="qc"></div>
+          <div class="bar hot" style="left: 36%; width: 28%;">SaaS화 6~9m<span class="lo">18~30억</span></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="item"><span class="num">07</span><span class="pdot gal"></span><span class="nm">갤러리아 수요예측·가격최적화</span></div>
+        <div class="track"><div class="qc"></div><div class="qc"></div><div class="qc"></div><div class="qc"></div><div class="qc"></div><div class="qc"></div>
+          <div class="bar gal" style="left: 38%; width: 24%;">파일럿 4~6m<span class="lo">12~20억</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lane-grp s3">
+      <div class="gh"><span class="gtag">장기 · 플랫폼화 · IP화</span><span class="ghn">계열 데이터 통합 + 외부 솔루션 IP화 (수출 검토)</span></div>
+
+      <div class="row">
+        <div class="item"><span class="num">10</span><span class="pdot con"></span><span class="nm">건설 BIM · 디지털트윈 PMIS</span></div>
+        <div class="track"><div class="qc"></div><div class="qc"></div><div class="qc"></div><div class="qc"></div><div class="qc"></div><div class="qc"></div>
+          <div class="bar con" style="left: 50%; width: 44%;">대형 9~14m<span class="lo">25~50억</span></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="item"><span class="num">11</span><span class="pdot ins"></span><span class="nm">인사이트 RE100 O&amp;M · VPP</span></div>
+        <div class="track"><div class="qc"></div><div class="qc"></div><div class="qc"></div><div class="qc"></div><div class="qc"></div><div class="qc"></div>
+          <div class="bar ins" style="left: 56%; width: 30%;">5~8m<span class="lo">15~25억</span></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="item"><span class="num">12</span><span class="pdot ins"></span><span class="nm">그룹 통합 ID·포인트 슈퍼앱 / AI 리테일 브레인</span></div>
+        <div class="track"><div class="qc"></div><div class="qc"></div><div class="qc"></div><div class="qc"></div><div class="qc"></div><div class="qc"></div>
+          <div class="bar ins" style="left: 64%; width: 36%;">12m+<span class="lo">30억+</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="principles">
+    <div class="princ">
+      <span class="step">실행 원칙 ①</span>
+      <span class="nm">서비스데스크·ITSM 표준화</span>
+      <span class="ds">HiON으로 운영 표준 통일 → <strong>계열 4사 공통 베이스</strong></span>
+    </div>
+    <div class="princ">
+      <span class="step">실행 원칙 ②</span>
+      <span class="nm">데이터 수집 · 통합</span>
+      <span class="ds">계열사별 운영 데이터를 <strong>HAIQV 데이터 웨어하우스</strong>로 연결</span>
+    </div>
+    <div class="princ">
+      <span class="step">실행 원칙 ③</span>
+      <span class="nm">AI · 모델 도입</span>
+      <span class="ds">AICC·CDP·예지보전 등 <strong>업종별 Vertical AI 모듈</strong> 적용</span>
+    </div>
+    <div class="princ">
+      <span class="step">실행 원칙 ④</span>
+      <span class="nm">운영형 과금모델 전환</span>
+      <span class="ds">단발 SI → 구독·성과공유 — <strong>Recurring Revenue</strong> 비중 확대</span>
+    </div>
+  </div>
+
+  <div class="term-note">
+    <span class="tlbl">용어</span>
+    <strong>한화머시너리앤서비스홀딩스</strong> 2026 하반기 출범 예정 신설 지주회사 — 한화비전·로보틱스·모멘텀 + 갤러리아·호텔·아워홈 통합 (gemini-search §1)<span class="sep">·</span>
+    <strong>JV형 운영모델</strong> 디벨로퍼(인사이트)와 IT 운영(한화시스템) 분리 구조에서 합작법인형 운영 (deep-research §23)<span class="sep">·</span>
+    <strong>Recurring Revenue</strong> 단발 구축이 아닌 <strong>월/연 단위 반복 매출</strong> — 마진·예측 가능성 양쪽 우위
+  </div>
+</div>
+
+<nav class="slide-nav">
+  <div class="slide-nav-inner">
+    <div class="nav-left"><a href="11-ito-candidates.html" onclick="event.preventDefault(); navigateTo(this.href)">&larr; 이전</a></div>
+    <div class="nav-center"><a href="index.html">13 / 15</a></div>
+    <div class="nav-right"><a href="13-ito-positioning.html" onclick="event.preventDefault(); navigateTo(this.href)">다음 &rarr;</a></div>
+  </div>
+</nav>
+<script>
+if (window.lucide) lucide.createIcons();
+function navigateTo(url) { document.body.classList.add('fade-out'); setTimeout(function() { window.location.href = url; }, 300); }
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'ArrowLeft') navigateTo('11-ito-candidates.html');
+  if (e.key === 'ArrowRight') navigateTo('13-ito-positioning.html');
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1280">
+<title>Tier-1 정면 X — 외부 영업이 가능한 포지션 후보 3개(A 내부특화 · B Brownfield · C 미션크리티컬 Vertical AI)</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #ffffff; font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; color: #1d1d1f; min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 56px 0 80px; -webkit-font-smoothing: antialiased; letter-spacing: -0.012em; }
+.container { width: 1280px; padding: 0 80px; display: flex; flex-direction: column; align-items: center; }
+.eyebrow { font-size: 12px; font-weight: 600; color: #6e6e73; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 14px; }
+.title { font-size: 38px; font-weight: 700; line-height: 1.16; letter-spacing: -0.028em; text-align: center; color: #1d1d1f; margin-bottom: 12px; max-width: 1100px; }
+.title em { color: #0a84a0; font-style: normal; }
+.title em.warn { color: #c97000; }
+.subtitle { font-size: 15.5px; color: #6e6e73; text-align: center; max-width: 1000px; line-height: 1.55; margin-bottom: 18px; }
+.subtitle strong { color: #1d1d1f; font-weight: 600; }
+
+.scale-table { width: 100%; max-width: 1140px; display: grid; grid-template-columns: 130px 130px 1fr 110px; border-radius: 14px; overflow: hidden; border: 1px solid #e0e0e0; background: #ffffff; margin-bottom: 14px; }
+.scale-table .h { background: #f5f5f7; padding: 10px 14px; font-size: 10.5px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #1d1d1f; border-bottom: 1px solid #e0e0e0; }
+.scale-table .cell { padding: 10px 14px; font-size: 12px; line-height: 1.5; border-top: 1px solid #f0f0f0; color: #3a3a3c; }
+.scale-table .cell.co { font-weight: 700; color: #1d1d1f; display: flex; align-items: center; gap: 8px; }
+.scale-table .cell.co .dot { width: 8px; height: 8px; border-radius: 50%; }
+.scale-table .cell.scale { font-weight: 700; font-variant-numeric: tabular-nums; color: #1d1d1f; }
+.scale-table .cell.scale .u { font-size: 10.5px; color: #86868b; font-weight: 600; margin-left: 2px; }
+.scale-table .cell strong { color: #1d1d1f; font-weight: 700; }
+.scale-table .row-hwsys .cell { background: rgba(10,132,160,0.04); }
+.scale-table .row-hwsys .cell.co { color: #0a84a0; }
+.scale-table .row-hwsys .cell.scale { color: #0a84a0; }
+
+.cand-grid { width: 100%; max-width: 1140px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 12px; }
+.cand { padding: 16px 16px; border-radius: 14px; border: 1px solid #e0e0e0; background: #ffffff; display: flex; flex-direction: column; gap: 9px; }
+.cand .chead { display: flex; align-items: center; gap: 8px; }
+.cand .clabel { font-size: 10px; font-weight: 800; padding: 3px 9px; border-radius: 9999px; letter-spacing: 0.08em; text-transform: uppercase; color: #ffffff; }
+.cand .ex-tag { font-size: 8.5px; font-weight: 700; color: #c97000; letter-spacing: 0.06em; padding: 1px 7px; border: 1px dashed rgba(201,112,0,0.42); border-radius: 9999px; text-transform: uppercase; margin-left: auto; }
+.cand .cname { font-size: 14.5px; font-weight: 700; color: #1d1d1f; letter-spacing: -0.012em; line-height: 1.3; }
+.cand .quote { font-size: 12px; color: #3a3a3c; line-height: 1.5; padding: 10px 12px; border-radius: 10px; font-style: italic; }
+.cand .quote strong { color: #1d1d1f; font-weight: 700; font-style: normal; }
+.cand .pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px; }
+.cand .pillars .p { padding: 5px 7px; border-radius: 6px; background: #ffffff; border: 1px solid #ececef; font-size: 10px; font-weight: 700; color: #1d1d1f; text-align: center; letter-spacing: -0.005em; line-height: 1.3; }
+.cand .row { display: grid; grid-template-columns: 56px 1fr; gap: 8px; padding: 6px 0; border-top: 1px dashed #f0f0f0; align-items: flex-start; }
+.cand .row .lb { font-size: 9.5px; font-weight: 800; color: #6e6e73; letter-spacing: 0.06em; text-transform: uppercase; padding-top: 1px; }
+.cand .row .vl { font-size: 11.5px; color: #3a3a3c; line-height: 1.5; }
+.cand .row .vl strong { color: #1d1d1f; font-weight: 700; }
+.cand .row.risk .vl { color: #c97000; }
+.cand .row.risk .vl strong { color: #c97000; }
+.cand .src { font-size: 9.5px; color: #86868b; padding-top: 6px; border-top: 1px dashed #ececef; margin-top: auto; }
+.cand .src strong { color: #1d1d1f; font-weight: 700; }
+
+.cand.a { border-color: rgba(10,132,160,0.42); background: linear-gradient(180deg, rgba(10,132,160,0.04), #ffffff); }
+.cand.a .clabel { background: #0a84a0; }
+.cand.a .quote { background: rgba(10,132,160,0.06); }
+.cand.a .pillars .p { color: #0a84a0; border-color: rgba(10,132,160,0.32); }
+.cand.b { border-color: rgba(40,167,69,0.36); background: linear-gradient(180deg, rgba(40,167,69,0.04), #ffffff); }
+.cand.b .clabel { background: #28a745; }
+.cand.b .quote { background: rgba(40,167,69,0.06); }
+.cand.b .pillars .p { color: #28a745; border-color: rgba(40,167,69,0.32); }
+.cand.c { border-color: rgba(175,82,222,0.36); background: linear-gradient(180deg, rgba(175,82,222,0.04), #ffffff); }
+.cand.c .clabel { background: #af52de; }
+.cand.c .quote { background: rgba(175,82,222,0.06); }
+.cand.c .pillars .p { color: #af52de; border-color: rgba(175,82,222,0.32); }
+
+.closing-strip { width: 100%; max-width: 1140px; padding: 14px 22px; border-radius: 14px; background: linear-gradient(135deg, rgba(255,149,0,0.06), rgba(10,132,160,0.05)); border: 1px solid rgba(255,149,0,0.28); display: flex; align-items: center; gap: 14px; margin-bottom: 10px; }
+.closing-strip svg { width: 22px; height: 22px; stroke-width: 2; color: #c97000; flex-shrink: 0; }
+.closing-strip .txt { font-size: 13px; color: #1d1d1f; line-height: 1.55; }
+.closing-strip .txt strong { color: #c97000; font-weight: 700; }
+
+.term-note { width: 100%; max-width: 1140px; padding: 10px 16px 0; margin-top: 6px; font-size: 10.5px; color: #86868b; line-height: 1.7; text-align: left; border-top: 1px dashed #e0e0e0; }
+.term-note .tlbl { display: inline-block; font-size: 9.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 7px; border-radius: 9999px; background: #f5f5f7; color: #6e6e73; margin-right: 8px; vertical-align: 1px; }
+.term-note strong { color: #1d1d1f; font-weight: 700; }
+.term-note .sep { color: #d2d2d7; margin: 0 7px; }
+
+.breadcrumb-index { position: fixed; top: 22px; right: 32px; z-index: 10000; display: flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 9999px; background: rgba(255,255,255,0.84); border: 1px solid #e0e0e0; backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); font-size: 12px; color: #6e6e73; }
+.breadcrumb-index .sep { color: #c7c7cc; } .breadcrumb-index strong { color: #1d1d1f; font-weight: 700; }
+.slide-title-index { position: fixed; top: 22px; left: 32px; z-index: 10000; max-width: 740px; padding: 8px 14px; border-radius: 9999px; background: rgba(255,255,255,0.84); border: 1px solid #e0e0e0; backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); color: #1d1d1f; font-size: 12px; font-weight: 700; white-space: nowrap; }
+.slide-nav { position: fixed; bottom: 0; left: 0; right: 0; height: 50px; background: rgba(255,255,255,0.92); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-top: 1px solid #e0e0e0; display: flex; align-items: center; justify-content: center; z-index: 9999; }
+.slide-nav-inner { width: 1280px; display: flex; align-items: center; justify-content: space-between; padding: 0 60px; }
+.slide-nav a { text-decoration: none; font-size: 14px; font-weight: 600; color: #0066cc; }
+.slide-nav .nav-center a { color: #6e6e73; font-size: 13px; font-weight: 400; }
+body { opacity: 0; animation: fadeIn 0.4s ease forwards; } body.fade-out { animation: fadeOut 0.3s ease forwards; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeOut { from { opacity: 1; } to { opacity: 0; transform: translateY(-12px); } }
+</style>
+</head>
+<body>
+<div class="slide-title-index"><span style="color:#6e6e73;font-weight:600;">ITO 관점</span><span style="color:#c7c7cc;margin:0 7px;">·</span>경쟁사 비교 + 차별화 포지션</div>
+<div class="breadcrumb-index"><span>Part 4</span><span class="sep">›</span><span>Positioning</span><span class="sep">›</span><strong>14 / 15</strong></div>
+
+<div class="container">
+  <p class="eyebrow">SLIDE 13 · ITO 영역 경쟁 환경 + 포지션 후보 3개 (예시 적용)</p>
+  <h1 class="title">Tier-1 정면 X — <em>외부 영업이 가능한</em> 포지션 후보 <em>3개</em><br/>(A <em>내부 특화</em> · B <em class="warn">Brownfield</em> · C <em class="warn">미션크리티컬 Vertical AI</em>)</h1>
+  <p class="subtitle">규모로는 삼성SDS·LG CNS와 직접 비교되지 않지만, <strong>외부 고객이 돈을 낼 자리</strong>는 결국 3가지 결로 정리되더라구요. <strong>오늘 하나로 박지 말고</strong>, 후보 3개를 같이 두고 <strong>이후에 메인 1~2 + 가점 1</strong>로 골라보면 좋을 것 같습니다. 후보 A는 deep-research §15·§16, B·C는 슬라이드 04 빈자리 #1·#2·#3에서 도출했어요.</p>
+
+  <div class="scale-table">
+    <div class="h">기업</div>
+    <div class="h">매출 규모</div>
+    <div class="h">주력 포지션</div>
+    <div class="h">출처</div>
+
+    <div class="cell co"><span class="dot" style="background:#ff9500;"></span>삼성SDS</div>
+    <div class="cell scale">6.54<span class="u">조 (2025 IT서비스)</span></div>
+    <div class="cell">대형 MSP/CSP — <strong>국내 Managed Cloud · Public Cloud 1위</strong> · 클라우드 2.68조 · FabriX·KKR M&amp;A</div>
+    <div class="cell" style="font-size:10.5px;color:#86868b;">DR §15 · §36</div>
+
+    <div class="cell co"><span class="dot" style="background:#0066cc;"></span>LG CNS</div>
+    <div class="cell scale">5.98<span class="u">조 (2024)</span></div>
+    <div class="cell">Cloud + AI 중심 AX — <strong>클라우드·AI 3.35조 (56%)</strong> · Palantir/OpenAI 파트너십 · 글로벌 확장</div>
+    <div class="cell" style="font-size:10.5px;color:#86868b;">DR §15 · §36</div>
+
+    <div class="cell co"><span class="dot" style="background:#af52de;"></span>SK AX</div>
+    <div class="cell scale">2.75<span class="u">조 (2024)</span></div>
+    <div class="cell">산업 특화 AX — <strong>AI · Cloud · Digital Manufacturing · Digital ESG</strong> 4대 성장 · 영업이익 +38.6%</div>
+    <div class="cell" style="font-size:10.5px;color:#86868b;">GS §1 · DR §93</div>
+
+    <div class="cell co"><span class="dot" style="background:#34c759;"></span>CJ올리브네트웍스</div>
+    <div class="cell scale">8,532<span class="u">억 (2025)</span></div>
+    <div class="cell">동급 체급 — <strong>대외 31% · 영업이익 +45.2%</strong> · 바이오·제약 ITO 수주 확대</div>
+    <div class="cell" style="font-size:10.5px;color:#86868b;">GS §30·150</div>
+
+    <div class="cell co row-hwsys"><span class="dot" style="background:#0a84a0;"></span>한화시스템/ICT</div>
+    <div class="cell scale row-hwsys">6,500~6,950<span class="u">억 (24~25)</span></div>
+    <div class="cell row-hwsys"><strong>그룹 캡티브 ITO 중심 · 제조·건설·서비스 혼합</strong> · 방산 미션크리티컬 검증 · 2026 1Q ICT +22%</div>
+    <div class="cell row-hwsys" style="font-size:10.5px;">DR §3 · GS §3.1</div>
+  </div>
+
+  <div class="cand-grid">
+    <div class="cand a">
+      <div class="chead">
+        <span class="clabel">후보 A · 내부 특화</span>
+        <span class="ex-tag">예시</span>
+      </div>
+      <div class="cname">복잡한 그룹의 운영형 AX 파트너</div>
+      <div class="quote">"한화 계열의 실제 업무·자산·데이터 위에서 <strong>운영형 AX</strong>를 가장 빠르게 올리는 내부 특화 파트너 — 검증 후 외부 동급으로 확장"</div>
+      <div class="pillars">
+        <div class="p">운영지식 깊이</div>
+        <div class="p">이종산업 결합</div>
+        <div class="p">미션크리티컬</div>
+      </div>
+      <div class="row">
+        <div class="lb">타깃</div>
+        <div class="vl">한화 그룹 + M&amp;A로 복잡해진 <strong>중견·대기업</strong></div>
+      </div>
+      <div class="row">
+        <div class="lb">외부 시장</div>
+        <div class="vl">작지만 마진 높음 — 캡티브 검증 후 동급 산업 1~2곳으로 확장</div>
+      </div>
+      <div class="row risk">
+        <div class="lb">리스크</div>
+        <div class="vl"><strong>"캡티브 정당화"</strong>로 읽힐 수 있음 — 외부 진입로 좁음, 영업 동선 확보 필요</div>
+      </div>
+      <div class="row">
+        <div class="lb">전략 hint</div>
+        <div class="vl">① 안성 알이씨 컨소시엄 → 민자 수주 / ② Allside·Eagle IBS SaaS화 / ③ AI 리테일 브레인 IP화</div>
+      </div>
+      <div class="src"><strong>출처</strong> — deep-research §15·§16 · gemini-search §5 (digital convergence hub)</div>
+    </div>
+
+    <div class="cand b">
+      <div class="chead">
+        <span class="clabel">후보 B · Brownfield</span>
+        <span class="ex-tag">예시</span>
+      </div>
+      <div class="cname">중견 제조 Brownfield 통합 1위</div>
+      <div class="quote">"M&amp;A·분리로 ERP 2개+가 된 중견 제조의 <strong>Brownfield 통합</strong>을 가장 빠르고 싸게 묶는 파트너 — Tier-1이 안 받는 자리"</div>
+      <div class="pillars">
+        <div class="p">3사 ERP 통합 실적</div>
+        <div class="p">50%·12개월 견적</div>
+        <div class="p">Tier-1 회피 영역</div>
+      </div>
+      <div class="row">
+        <div class="lb">타깃</div>
+        <div class="vl">M&amp;A·분리 이력 있는 <strong>중견 제조</strong> (Tier-1 견적 부담)</div>
+      </div>
+      <div class="row">
+        <div class="lb">외부 시장</div>
+        <div class="vl">국내 중견 제조 brownfield — Tier-1이 단가·scope creep으로 회피한 빈자리</div>
+      </div>
+      <div class="row risk">
+        <div class="lb">리스크</div>
+        <div class="vl">단발 SI 매출 성격 — <strong>재구매 약함</strong>, scope creep 시 마진 압박</div>
+      </div>
+      <div class="row">
+        <div class="lb">전략 hint</div>
+        <div class="vl">① 3사 ERP 통합 실적 1-page offer + LOI 가설 / ② W1NE FACTORY → 중견 제조 MES 번들 + ITO attach</div>
+      </div>
+      <div class="src"><strong>출처</strong> — 슬라이드 04 빈자리 #2 · 슬라이드 05 자산 #03·#05</div>
+    </div>
+
+    <div class="cand c">
+      <div class="chead">
+        <span class="clabel">후보 C · Vertical AI</span>
+        <span class="ex-tag">예시</span>
+      </div>
+      <div class="cname">방산급 보안 + 90일 Vertical AI</div>
+      <div class="quote">"규제·미션크리티컬 산업의 <strong>90일 Vertical AI Production</strong> 파트너 — FabriX·AgenticWorks가 안 받는 중견/보안 민감"</div>
+      <div class="pillars">
+        <div class="p">방산 미션크리티컬</div>
+        <div class="p">Vertical 템플릿</div>
+        <div class="p">GPU+seat 모델</div>
+      </div>
+      <div class="row">
+        <div class="lb">타깃</div>
+        <div class="vl">보험·금융·중공업·에너지 <strong>규제 산업</strong> + 중견 (Tier-1 대안)</div>
+      </div>
+      <div class="row">
+        <div class="lb">외부 시장</div>
+        <div class="vl">보험 코어 모더나이제이션 + 중견 90일 AI Factory — EasyOne 외부 확장 가능성</div>
+      </div>
+      <div class="row risk">
+        <div class="lb">리스크</div>
+        <div class="vl">영업 사이클 길고 <strong>보안 인증 비용 큼</strong> · GPUaaS Capex 회수 시점 늦음</div>
+      </div>
+      <div class="row">
+        <div class="lb">전략 hint</div>
+        <div class="vl">① EasyOne → 동급 비계열 보험사 1~2곳 확장 / ② GPUaaS + Vertical AI 템플릿 + seat 패키지 (중견 1곳 90일)</div>
+      </div>
+      <div class="src"><strong>출처</strong> — 슬라이드 04 빈자리 #1·#3 · 슬라이드 05 자산 #01·#06</div>
+    </div>
+  </div>
+
+  <div class="closing-strip">
+    <i data-lucide="alert-triangle" aria-hidden="true"></i>
+    <div class="txt"><strong>오늘 답 X · 이어지는 논의용 자료</strong> — 3 후보를 같이 두고 ① 메인 1~2개를 어느 쪽으로 가져갈지 ② 가점 1개를 어떻게 붙일지 ③ 각 후보가 슬라이드 06의 4가지 기준을 통과하는지 같이 보는 자료예요. 슬라이드 14 <strong>Q4</strong>에서 한 번 더 묻습니다.</div>
+  </div>
+
+  <div class="term-note">
+    <span class="tlbl">용어</span>
+    <strong>Tier-1</strong> 삼성SDS·LG CNS·SK AX 같은 대형 SI<span class="sep">·</span>
+    <strong>운영형 AX</strong> 단발 SI 구축이 아닌, 운영을 가지면서 AI·데이터로 단계적 변환<span class="sep">·</span>
+    <strong>Brownfield 통합</strong> 기존에 운영 중인 시스템 사이를 연결·통합하는 방식 (Greenfield 신규 구축의 반대)<span class="sep">·</span>
+    <strong>미션크리티컬</strong> 한 치 오차도 허용되지 않는 환경 — 방산·항공우주에서 검증된 보안·무결성 노하우<span class="sep">·</span>
+    <strong>메인+가점 포지셔닝</strong> 하나 박는 대신 메인 1~2 + 가점 1로 가져가는 방식 — 외부 시장 다변화 동시에 시도 가능
+  </div>
+</div>
+
+<nav class="slide-nav">
+  <div class="slide-nav-inner">
+    <div class="nav-left"><a href="12-ito-roadmap.html" onclick="event.preventDefault(); navigateTo(this.href)">&larr; 이전</a></div>
+    <div class="nav-center"><a href="index.html">14 / 15</a></div>
+    <div class="nav-right"><a href="14-discussion.html" onclick="event.preventDefault(); navigateTo(this.href)">다음 &rarr;</a></div>
+  </div>
+</nav>
+<script>
+if (window.lucide) lucide.createIcons();
+function navigateTo(url) { document.body.classList.add('fade-out'); setTimeout(function() { window.location.href = url; }, 300); }
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'ArrowLeft') navigateTo('12-ito-roadmap.html');
+  if (e.key === 'ArrowRight') navigateTo('14-discussion.html');
+});
+</script>
+</body>
+</html>

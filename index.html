@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1280">
+<title>한화시스템/ICT — 어디쯤 와 있고, 새 사업 아이디어는 어떻게 찾아볼까 (슬라이드 인덱스)</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #ffffff; font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; color: #1d1d1f; min-height: 100vh; display: flex; justify-content: center; padding: 64px 0 96px; -webkit-font-smoothing: antialiased; letter-spacing: -0.01em; }
+.container { width: 1280px; padding: 0 80px; }
+.eyebrow { text-align: center; font-size: 12px; font-weight: 600; color: #6e6e73; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 14px; }
+.page-title { font-size: 44px; font-weight: 700; line-height: 1.1; color: #1d1d1f; letter-spacing: -0.028em; text-align: center; margin-bottom: 12px; }
+.page-title em { font-style: normal; background: linear-gradient(135deg, #0066cc 0%, #34c759 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.page-subtitle { text-align: center; font-size: 17px; line-height: 1.5; color: #6e6e73; margin-bottom: 48px; max-width: 820px; margin-left: auto; margin-right: auto; letter-spacing: -0.012em; }
+.page-subtitle strong { color: #1d1d1f; font-weight: 600; }
+
+.parent-link { text-align: center; margin-bottom: 36px; }
+.parent-link a { display: inline-flex; align-items: center; gap: 6px; padding: 7px 14px; border-radius: 9999px; background: #f5f5f7; color: #6e6e73; font-size: 12px; font-weight: 600; text-decoration: none; letter-spacing: 0; }
+.parent-link a:hover { background: #e5e5ea; }
+
+.section { margin-bottom: 40px; }
+.section-header { display: flex; align-items: center; gap: 14px; padding: 0 4px 16px 4px; border-bottom: 1px solid #e0e0e0; margin-bottom: 20px; }
+.num-range { display: inline-flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; color: #ffffff; padding: 4px 11px; border-radius: 9999px; letter-spacing: 0.02em; }
+.section-label { font-size: 21px; font-weight: 700; letter-spacing: -0.012em; color: #1d1d1f; }
+.section-desc { font-size: 13px; font-weight: 400; color: #86868b; margin-left: auto; letter-spacing: -0.006em; }
+.grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.card { display: flex; flex-direction: column; gap: 10px; min-height: 156px; padding: 22px 22px; background: #ffffff; border: 1px solid #e0e0e0; border-radius: 18px; text-decoration: none; color: inherit; transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease; }
+.card:hover { transform: translateY(-2px); border-color: #0066cc; box-shadow: 0 8px 24px rgba(0, 102, 204, 0.08); }
+.card .card-num { font-size: 28px; font-weight: 700; letter-spacing: -0.028em; line-height: 1; }
+.card .card-title { font-size: 14.5px; font-weight: 600; line-height: 1.42; color: #1d1d1f; letter-spacing: -0.012em; }
+.card .card-file { margin-top: auto; font-size: 11px; color: #86868b; font-family: "SF Mono", "JetBrains Mono", "Consolas", monospace; letter-spacing: -0.005em; }
+
+.section-cover .num-range { background: #1d1d1f; }
+.section-cover .card .card-num { color: #1d1d1f; }
+.section-1 .num-range { background: #0066cc; }
+.section-1 .card .card-num { color: #0066cc; }
+.section-1 .card:hover { border-color: #0066cc; }
+.section-2 .num-range { background: #28a745; }
+.section-2 .card .card-num { color: #28a745; }
+.section-2 .card:hover { border-color: #28a745; box-shadow: 0 8px 24px rgba(40, 167, 69, 0.10); }
+.section-3 .num-range { background: #c97000; }
+.section-3 .card .card-num { color: #c97000; }
+.section-3 .card:hover { border-color: #c97000; box-shadow: 0 8px 24px rgba(255, 149, 0, 0.10); }
+.section-4 .num-range { background: #0a84a0; }
+.section-4 .card .card-num { color: #0a84a0; }
+.section-4 .card:hover { border-color: #0a84a0; box-shadow: 0 8px 24px rgba(10, 132, 160, 0.10); }
+.section-outro .num-range { background: #af52de; }
+.section-outro .card .card-num { color: #af52de; }
+.section-outro .card:hover { border-color: #af52de; box-shadow: 0 8px 24px rgba(175, 82, 222, 0.10); }
+
+.meta-strip { width: 100%; padding: 14px 18px; border-radius: 12px; background: linear-gradient(135deg, rgba(0,102,204,0.04), rgba(40,167,69,0.04)); border: 1px solid rgba(0,102,204,0.18); display: flex; align-items: center; gap: 12px; font-size: 12.5px; color: #1d1d1f; line-height: 1.55; margin-top: 28px; }
+.meta-strip strong { color: #0066cc; font-weight: 700; }
+
+body { opacity: 0; animation: fadeIn 0.4s ease forwards; } body.fade-out { animation: fadeOut 0.3s ease forwards; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeOut { from { opacity: 1; transform: translateY(0); } to { opacity: 0; transform: translateY(-12px); } }
+</style>
+</head>
+<body>
+<div class="container">
+  <p class="eyebrow">ICT · 사업기획·전략 동료 공유 Deck v2</p>
+  <h1 class="page-title">ICT, 지금 <em>어디쯤</em> 와 있고 — 새 사업 아이디어는 <em>어떻게 </em> 찾아볼까</h1>
+  <p class="page-subtitle">표지 1장 · 본문 13장 · Discussion 1장 — 총 <strong>15장</strong>. 결론을 만드는 자료가 아니라, <strong>같이 들여다볼 틀</strong>을 한 번 맞춰보는 자료예요. <strong>Part 4</strong>는 ITO 두 보고서를 같은 양식에 정리한 응용 부분입니다. 카드를 클릭하면 개별 슬라이드로 이동합니다.</p>
+
+  <div class="parent-link">
+    <a href="../slides/index.html">← 기존 deck (Solution-Led Industry AX · 14장) 보기</a>
+  </div>
+
+  <div class="section section-cover">
+    <div class="section-header">
+      <span class="num-range">Cover</span>
+      <span class="section-label">표지</span>
+    </div>
+    <div class="grid">
+      <a class="card" href="00-cover.html" onclick="event.preventDefault(); navigateTo(this.href)">
+        <span class="card-num">00</span>
+        <span class="card-title">ICT, 지금 어디쯤 와 있고 — 새 사업 아이디어는 어떻게 찾아볼까</span>
+        <span class="card-file">00-cover.html</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="section section-1">
+    <div class="section-header">
+      <span class="num-range">Part 1</span>
+      <span class="section-label">어디쯤 — 우리가 서 있는 자리</span>
+      <span class="section-desc">현재 위치 · 3중 변화 · 벤치마크 · 빈자리</span>
+    </div>
+    <div class="grid">
+      <a class="card" href="01-where-we-are.html" onclick="event.preventDefault(); navigateTo(this.href)">
+        <span class="card-num">01</span>
+        <span class="card-title">2024~25 ICT 매출 6,500~6,950억·영업이익 560억 — 숫자는 안정적, 다만 캡티브 70~80%가 받쳐주는 구조</span>
+        <span class="card-file">01-where-we-are.html</span>
+      </a>
+      <a class="card" href="02-three-shifts.html" onclick="event.preventDefault(); navigateTo(this.href)">
+        <span class="card-num">02</span>
+        <span class="card-title">AX 시장 전환 + 공정위 캡티브 검증 + Tier-1 대외 공세 — 세 변화가 한꺼번에</span>
+        <span class="card-file">02-three-shifts.html</span>
+      </a>
+      <a class="card" href="03-peers.html" onclick="event.preventDefault(); navigateTo(this.href)">
+        <span class="card-num">03</span>
+        <span class="card-title">동급·상위 SI는 이미 캡티브를 빠르게 낮추는 중 — LG CNS 68.6%→52.3%, CJ 대외 31%</span>
+        <span class="card-file">03-peers.html</span>
+      </a>
+      <a class="card" href="04-tier1-gap.html" onclick="event.preventDefault(); navigateTo(this.href)">
+        <span class="card-num">04</span>
+        <span class="card-title">Tier-1이 아직 손대지 않은 빈자리 3개 — 업무 깊이 · Brownfield · 중견 Vertical AI</span>
+        <span class="card-file">04-tier1-gap.html</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="section section-2">
+    <div class="section-header">
+      <span class="num-range">Part 2</span>
+      <span class="section-label">가진 것 — 우리 손에 이미 있는 자산</span>
+      <span class="section-desc">출처 확인 자산 6 + Watchlist 1 · 거르는 기준 4가지</span>
+    </div>
+    <div class="grid">
+      <a class="card" href="05-assets.html" onclick="event.preventDefault(); navigateTo(this.href)">
+        <span class="card-num">05</span>
+        <span class="card-title">대외 영업에 쓸 수 있는 출처 확인 자산 6장 + Watchlist 1장 (제외 항목 별도 표기)</span>
+        <span class="card-file">05-assets.html</span>
+      </a>
+      <a class="card" href="06-criteria.html" onclick="event.preventDefault(); navigateTo(this.href)">
+        <span class="card-num">06</span>
+        <span class="card-title">아이디어를 거를 때 같이 봤으면 하는 4가지 기준 — 레퍼런스 · 마진 · 재포장 · Tier-1 회피</span>
+        <span class="card-file">06-criteria.html</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="section section-3">
+    <div class="section-header">
+      <span class="num-range">Part 3</span>
+      <span class="section-label">어떻게 찾아볼까 — 같이 쓰는 방법론</span>
+      <span class="section-desc">3가지 관점 · Brain Dump 캔버스</span>
+    </div>
+    <div class="grid">
+      <a class="card" href="07-perspectives.html" onclick="event.preventDefault(); navigateTo(this.href)">
+        <span class="card-num">07</span>
+        <span class="card-title">아이디어 발굴에 써볼 수 있는 3가지 관점 — 자산 재포장 · 빈자리 채우기 · 모회사 인접 확장</span>
+        <span class="card-file">07-perspectives.html</span>
+      </a>
+      <a class="card" href="08-canvas.html" onclick="event.preventDefault(); navigateTo(this.href)">
+        <span class="card-num">08</span>
+        <span class="card-title">한 장에 같이 채워보는 Brain Dump 캔버스 — 자산·고객·아이디어·90일 가설</span>
+        <span class="card-file">08-canvas.html</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="section section-4">
+    <div class="section-header">
+      <span class="num-range">Part 4</span>
+      <span class="section-label">ITO 관점 — 두 보고서를 같은 양식으로 응용 (예시 적용)</span>
+      <span class="section-desc">현황 · 계열사 · 후보 12개 · 단계형 로드맵 · 포지션 후보 3개</span>
+    </div>
+    <div class="grid">
+      <a class="card" href="09-ito-status.html" onclick="event.preventDefault(); navigateTo(this.href)">
+        <span class="card-num">09</span>
+        <span class="card-title">ITO를 따로 떼어보면 — ICT부문 안에 그룹향 운영 매출 약 5,000억이 안정적으로 받쳐주는 구조</span>
+        <span class="card-file">09-ito-status.html</span>
+      </a>
+      <a class="card" href="10-ito-affiliates.html" onclick="event.preventDefault(); navigateTo(this.href)">
+        <span class="card-num">10</span>
+        <span class="card-title">계열사 디지털 과제 매트릭스 — 호텔·갤러리아 직접 운영, 인사이트·건설 디벨로퍼 협업</span>
+        <span class="card-file">10-ito-affiliates.html</span>
+      </a>
+      <a class="card" href="11-ito-candidates.html" onclick="event.preventDefault(); navigateTo(this.href)">
+        <span class="card-num">11</span>
+        <span class="card-title">두 보고서가 짚은 신사업 후보 12개 — 단기 / 중기 / 장기 레인으로 같이 우선순위 매겨봐요</span>
+        <span class="card-file">11-ito-candidates.html</span>
+      </a>
+      <a class="card" href="12-ito-roadmap.html" onclick="event.preventDefault(); navigateTo(this.href)">
+        <span class="card-num">12</span>
+        <span class="card-title">단계형 로드맵 (M0 합의 후) — 호텔 AICC · 갤러리아 CDP · 건설 AI 안전관제 3개 + 머시너리홀딩스 트리거</span>
+        <span class="card-file">12-ito-roadmap.html</span>
+      </a>
+      <a class="card" href="13-ito-positioning.html" onclick="event.preventDefault(); navigateTo(this.href)">
+        <span class="card-num">13</span>
+        <span class="card-title">Tier-1 정면 X — 포지션 후보 3개(A 내부특화 · B Brownfield · C 미션크리티컬 Vertical AI) 같이 보기</span>
+        <span class="card-file">13-ito-positioning.html</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="section section-outro">
+    <div class="section-header">
+      <span class="num-range">Closing</span>
+      <span class="section-label">Discussion — 같이 의견 나누기</span>
+      <span class="section-desc">진입 기준 · 빠진 관점 · 이후 진행 방식</span>
+    </div>
+    <div class="grid">
+      <a class="card" href="14-discussion.html" onclick="event.preventDefault(); navigateTo(this.href)">
+        <span class="card-num">14</span>
+        <span class="card-title">오늘 의견 듣고 싶은 4가지 — 진입 기준 · 빠진 관점 · 이후 진행 방식 · Part 4 ITO 후보 (NEW)</span>
+        <span class="card-file">14-discussion.html</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="meta-strip">
+    <span>📌 <strong>이 자료의 의도</strong> — Part 1~3은 "어디서부터 어떻게 찾을지"의 틀과 자산 맵·기준·관점·캔버스까지 공유. <strong>Part 4(ITO)는 deep-research·gemini-search 두 보고서</strong>를 같은 양식에 정리한 응용 부분 — 결정된 사업 라인업이 아니라, 같이 추려볼 <strong>후보 모음</strong>이에요. <span style="color:#86868b;font-size:11.5px;">⌘/Ctrl·middle-click 으로 새 탭 열기 가능</span></span>
+  </div>
+</div>
+<script>
+function navigateTo(url) { document.body.classList.add('fade-out'); setTimeout(function() { window.location.href = url; }, 300); }
+document.querySelectorAll('a.card').forEach(function(a){
+  a.removeAttribute('onclick');
+  a.addEventListener('click', function(e){
+    if (e.button !== 0 || e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return;
+    e.preventDefault();
+    navigateTo(this.href);
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1280">
+<title>AX 시장 전환 + 공정위 캡티브 검증 + Tier-1 대외 공세 — 세 변화가 한꺼번에</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #ffffff; font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; color: #1d1d1f; min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 56px 0 80px; -webkit-font-smoothing: antialiased; letter-spacing: -0.012em; }
+.container { width: 1280px; padding: 0 80px; display: flex; flex-direction: column; align-items: center; }
+.eyebrow { font-size: 12px; font-weight: 600; color: #6e6e73; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 14px; }
+.title { font-size: 42px; font-weight: 700; line-height: 1.14; letter-spacing: -0.028em; text-align: center; color: #1d1d1f; margin-bottom: 14px; max-width: 1080px; }
+.title em { color: #0066cc; font-style: normal; }
+.subtitle { font-size: 17px; color: #6e6e73; text-align: center; max-width: 920px; line-height: 1.55; margin-bottom: 32px; }
+.subtitle strong { color: #1d1d1f; font-weight: 600; }
+
+.shift-grid { width: 100%; max-width: 1120px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 22px; }
+.shift { padding: 22px 22px; border-radius: 18px; border: 1px solid #e0e0e0; background: #ffffff; display: flex; flex-direction: column; gap: 10px; }
+.shift .head { display: flex; align-items: center; gap: 10px; font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
+.shift .head svg { width: 14px; height: 14px; stroke-width: 2; }
+.shift .head .tag { padding: 2px 8px; border-radius: 9999px; font-size: 9.5px; letter-spacing: 0.04em; }
+.shift.s1 .head { color: #0066cc; } .shift.s1 .head .tag { background: rgba(0,102,204,0.1); color: #0066cc; }
+.shift.s2 .head { color: #c97000; } .shift.s2 .head .tag { background: rgba(255,149,0,0.12); color: #c97000; }
+.shift.s3 .head { color: #af52de; } .shift.s3 .head .tag { background: rgba(175,82,222,0.12); color: #af52de; }
+.shift .ptitle { font-size: 16px; font-weight: 700; color: #1d1d1f; letter-spacing: -0.012em; line-height: 1.32; }
+.shift ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 5px; }
+.shift li { font-size: 12.5px; color: #3a3a3c; line-height: 1.5; padding-left: 12px; position: relative; }
+.shift li::before { content: "·"; position: absolute; left: 2px; top: -2px; font-weight: 700; }
+.shift.s1 li::before { color: #0066cc; }
+.shift.s2 li::before { color: #c97000; }
+.shift.s3 li::before { color: #af52de; }
+.shift li strong { color: #1d1d1f; font-weight: 700; }
+.shift .src { font-size: 10.5px; color: #86868b; margin-top: 4px; padding-top: 8px; border-top: 1px dashed #e0e0e0; }
+.shift .src strong { color: #6e6e73; font-weight: 700; }
+
+.bottom-line { width: 100%; max-width: 1120px; padding: 16px 22px; border-radius: 14px; background: linear-gradient(135deg, rgba(0,102,204,0.04), rgba(40,167,69,0.04)); border: 1px solid rgba(0,102,204,0.18); display: flex; align-items: center; gap: 14px; }
+.bottom-line svg { width: 22px; height: 22px; stroke-width: 2; color: #0066cc; flex-shrink: 0; }
+.bottom-line .txt { font-size: 13.5px; color: #1d1d1f; line-height: 1.55; }
+.bottom-line .txt strong { color: #0066cc; font-weight: 700; }
+
+.term-note { width: 100%; max-width: 1120px; padding: 10px 16px 0; margin-top: 16px; font-size: 10.5px; color: #86868b; line-height: 1.7; text-align: left; border-top: 1px dashed #e0e0e0; }
+.term-note .tlbl { display: inline-block; font-size: 9.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 7px; border-radius: 9999px; background: #f5f5f7; color: #6e6e73; margin-right: 8px; vertical-align: 1px; }
+.term-note strong { color: #1d1d1f; font-weight: 700; }
+.term-note .sep { color: #d2d2d7; margin: 0 7px; }
+
+.breadcrumb-index { position: fixed; top: 22px; right: 32px; z-index: 10000; display: flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 9999px; background: rgba(255,255,255,0.84); border: 1px solid #e0e0e0; backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); font-size: 12px; color: #6e6e73; }
+.breadcrumb-index .sep { color: #c7c7cc; } .breadcrumb-index strong { color: #1d1d1f; font-weight: 700; }
+.slide-title-index { position: fixed; top: 22px; left: 32px; z-index: 10000; max-width: 740px; padding: 8px 14px; border-radius: 9999px; background: rgba(255,255,255,0.84); border: 1px solid #e0e0e0; backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); color: #1d1d1f; font-size: 12px; font-weight: 700; white-space: nowrap; }
+.slide-nav { position: fixed; bottom: 0; left: 0; right: 0; height: 50px; background: rgba(255,255,255,0.92); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-top: 1px solid #e0e0e0; display: flex; align-items: center; justify-content: center; z-index: 9999; }
+.slide-nav-inner { width: 1280px; display: flex; align-items: center; justify-content: space-between; padding: 0 60px; }
+.slide-nav a { text-decoration: none; font-size: 14px; font-weight: 600; color: #0066cc; }
+.slide-nav .nav-center a { color: #6e6e73; font-size: 13px; font-weight: 400; }
+body { opacity: 0; animation: fadeIn 0.4s ease forwards; } body.fade-out { animation: fadeOut 0.3s ease forwards; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeOut { from { opacity: 1; } to { opacity: 0; transform: translateY(-12px); } }
+</style>
+</head>
+<body>
+<div class="slide-title-index"><span style="color:#6e6e73;font-weight:600;">어디쯤</span><span style="color:#c7c7cc;margin:0 7px;">·</span>3중 변화가 동시에</div>
+<div class="breadcrumb-index"><span>Part 1</span><span class="sep">›</span><span>Three Shifts</span><span class="sep">›</span><strong>3 / 15</strong></div>
+
+<div class="container">
+  <p class="eyebrow">SLIDE 02 · 왜 지금 이 이야기를 꺼내는지</p>
+  <h1 class="title">AX 시장 전환 + 공정위 캡티브 검증 + Tier-1 대외 공세 —<br/><em>세 변화가 한꺼번에</em> 들어오고 있어요</h1>
+  <p class="subtitle">새 사업 이야기를 굳이 지금 꺼내는 이유는, 어느 하나가 아니라 <strong>시장·규제·경쟁 세 방향이 같은 시점에 들어오기 때문</strong>입니다. 각각은 우리 회사 결정 영역 밖이지만, 합쳐서 보면 <strong>"기존 구조 그대로 가긴 어려운 시간대"</strong> 라는 결을 같이 잡고 가면 좋을 것 같아요.</p>
+
+  <div class="shift-grid">
+    <div class="shift s1">
+      <div class="head"><i data-lucide="zap" aria-hidden="true"></i>변화 1<span class="tag">시장 — AX 전환</span></div>
+      <div class="ptitle">DX → AX로 넘어가면서, 인력 단가 위주 모델은 이익률 한계</div>
+      <ul>
+        <li>플랫폼·솔루션·AI 기반 수익 모델로 재편 중</li>
+        <li>"단순 클라우드 MSP·인력 파견(Body Shopping)으로는 <strong>두 자릿수 영업이익률 불가</strong>"</li>
+        <li>우리 ITO 정액 GM은 <strong>15~20%</strong> 수준</li>
+      </ul>
+      <div class="src"><strong>출처</strong> · gemini-search §2.1 (전략 제언) · deep-research §93</div>
+    </div>
+    <div class="shift s2">
+      <div class="head"><i data-lucide="gavel" aria-hidden="true"></i>변화 2<span class="tag">규제 — 공정위</span></div>
+      <div class="ptitle">2025년 공정위 캡티브 검증 강화 — 70~80%는 구조적 노출</div>
+      <ul>
+        <li>총수 일가 2세 지분율 높은 계열 SI <strong>고강도 현미경 검증</strong></li>
+        <li>비계열 대외 레퍼런스 우선 공개 압박</li>
+        <li><strong>KG ICT 사례 — 내부거래 44%에도 경고</strong> (기준선 50% 미만으로)</li>
+      </ul>
+      <div class="src"><strong>출처</strong> · gemini-search §1.2 (공정위 정책·KG ICT)</div>
+    </div>
+    <div class="shift s3">
+      <div class="head"><i data-lucide="swords" aria-hidden="true"></i>변화 3<span class="tag">경쟁 — Tier-1 공세</span></div>
+      <div class="ptitle">Tier-1의 대외 확장이 진입 창을 점점 좁히는 중</div>
+      <ul>
+        <li><strong>LG CNS</strong> 캡티브 68.6% → <strong>52.3%</strong> <span style="color:#86868b;">(2025, ▼16.3%p)</span></li>
+        <li><strong>CJ올리브네트웍스</strong> 대외 31%, 영업이익 +45.2% <span style="color:#86868b;">(2025)</span></li>
+        <li>삼성SDS·SK AX — FabriX·Solur 등 AX 플랫폼 선점 <span style="color:#86868b;">(2024~25)</span></li>
+      </ul>
+      <div class="src"><strong>출처</strong> · deep-research · gemini-search</div>
+    </div>
+  </div>
+
+  <div class="bottom-line">
+    <i data-lucide="layers" aria-hidden="true"></i>
+    <div class="txt">세 변화가 모두 같은 방향을 가리키고 있어서 — <strong>"대외 매출을 만들 새 사업 영역을 어디서 찾을지"</strong> 가 자연스럽게 다음 질문이 됩니다. 다음 장에서 동급·상위 SI들이 이 환경에서 어떻게 움직이는지 짧게 보고 갈게요.</div>
+  </div>
+
+  <div class="term-note">
+    <span class="tlbl">용어</span>
+    <strong>DX / AX</strong> Digital / AI Transformation · 디지털·AI 전환<span class="sep">·</span>
+    <strong>Body Shopping</strong> 인력 단가 × 투입 시간 기반 매출 (마진 얇고 확장성 낮음)<span class="sep">·</span>
+    <strong>GM</strong> Gross Margin · 매출총이익률<span class="sep">·</span>
+    <strong>Tier-1</strong> 삼성SDS·LG CNS·SK AX 같은 대형 SI 그룹
+  </div>
+</div>
+
+<nav class="slide-nav">
+  <div class="slide-nav-inner">
+    <div class="nav-left"><a href="01-where-we-are.html" onclick="event.preventDefault(); navigateTo(this.href)">&larr; 이전</a></div>
+    <div class="nav-center"><a href="index.html">3 / 15</a></div>
+    <div class="nav-right"><a href="03-peers.html" onclick="event.preventDefault(); navigateTo(this.href)">다음 &rarr;</a></div>
+  </div>
+</nav>
+<script>
+if (window.lucide) lucide.createIcons();
+function navigateTo(url) { document.body.classList.add('fade-out'); setTimeout(function() { window.location.href = url; }, 300); }
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'ArrowLeft') navigateTo('01-where-we-are.html');
+  if (e.key === 'ArrowRight') navigateTo('03-peers.html');
+});
+</script>
+</body>
+</html>

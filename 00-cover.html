@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1280">
+<title>한화시스템/ICT — 지금 어디쯤 와 있고, 새 사업 아이디어는 어떻게 찾아볼까</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #ffffff; font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; color: #1d1d1f; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; -webkit-font-smoothing: antialiased; letter-spacing: -0.012em; padding: 56px 0 80px; }
+.accent-bar { position: fixed; left: 0; top: 0; bottom: 0; width: 6px; background: linear-gradient(180deg, #0066cc 0%, #34c759 100%); }
+.container { width: 1280px; padding: 0 100px; }
+.eyebrow { font-size: 12px; font-weight: 700; color: #0066cc; letter-spacing: 0.22em; text-transform: uppercase; margin-bottom: 26px; display: inline-flex; align-items: center; gap: 10px; }
+.eyebrow svg { width: 14px; height: 14px; stroke-width: 2; }
+.title { font-size: 56px; font-weight: 800; line-height: 1.06; letter-spacing: -0.035em; color: #1d1d1f; margin-bottom: 18px; }
+.title em { font-style: normal; background: linear-gradient(135deg, #0066cc 0%, #34c759 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.subtitle { font-size: 21px; font-weight: 400; line-height: 1.55; color: #6e6e73; max-width: 920px; margin-bottom: 60px; letter-spacing: -0.012em; }
+.subtitle strong { color: #1d1d1f; font-weight: 600; }
+.kpi-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; max-width: 1080px; margin-bottom: 56px; }
+.kpi { padding: 22px 22px; border-radius: 18px; border: 1px solid #e0e0e0; background: #ffffff; }
+.kpi .label { font-size: 11px; font-weight: 700; color: #6e6e73; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 8px; }
+.kpi .value { font-size: 26px; font-weight: 800; color: #0066cc; letter-spacing: -0.024em; line-height: 1.1; }
+.kpi .value .unit { font-size: 14px; color: #6e6e73; font-weight: 600; margin-left: 4px; }
+.kpi .hint { font-size: 12px; color: #86868b; margin-top: 6px; line-height: 1.4; }
+.kpi.green .value { color: #28a745; }
+.kpi.orange .value { color: #c97000; }
+.kpi.gray .value { color: #1d1d1f; }
+.meta { font-size: 13px; color: #86868b; display: flex; align-items: center; gap: 18px; }
+.meta strong { color: #1d1d1f; font-weight: 700; }
+.meta .dot { width: 4px; height: 4px; border-radius: 50%; background: #c7c7cc; }
+.cta { margin-top: 36px; display: inline-flex; align-items: center; gap: 10px; padding: 14px 28px; border-radius: 9999px; background: #0066cc; color: #fff; font-size: 15px; font-weight: 600; text-decoration: none; }
+.cta svg { width: 18px; height: 18px; stroke-width: 1.8; }
+.invite-strip { width: 100%; max-width: 1080px; padding: 16px 20px; border-radius: 14px; background: linear-gradient(135deg, rgba(0,102,204,0.04), rgba(52,199,89,0.04)); border: 1px solid rgba(0,102,204,0.18); display: flex; align-items: center; gap: 12px; margin-bottom: 36px; }
+.invite-strip svg { width: 20px; height: 20px; color: #0066cc; flex-shrink: 0; stroke-width: 2; }
+.invite-strip .txt { font-size: 13.5px; color: #1d1d1f; line-height: 1.55; }
+.invite-strip .txt strong { color: #0066cc; font-weight: 700; }
+.term-note { width: 100%; max-width: 1080px; padding: 12px 16px 0; margin-top: 32px; font-size: 10.5px; color: #86868b; line-height: 1.7; text-align: center; border-top: 1px dashed #e0e0e0; }
+.term-note .tlbl { display: inline-block; font-size: 9.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 7px; border-radius: 9999px; background: #f5f5f7; color: #6e6e73; margin-right: 8px; vertical-align: 1px; }
+.term-note strong { color: #1d1d1f; font-weight: 700; }
+.term-note .sep { color: #d2d2d7; margin: 0 7px; }
+.slide-nav { position: fixed; bottom: 0; left: 0; right: 0; height: 50px; background: rgba(255,255,255,0.92); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-top: 1px solid #e0e0e0; display: flex; align-items: center; justify-content: center; z-index: 9999; }
+.slide-nav-inner { width: 1280px; display: flex; align-items: center; justify-content: space-between; padding: 0 60px; }
+.slide-nav a { text-decoration: none; font-size: 14px; font-weight: 600; color: #0066cc; }
+.slide-nav .nav-disabled { font-size: 14px; font-weight: 600; color: #c7c7cc; cursor: default; }
+.slide-nav .nav-center a { color: #6e6e73; font-size: 13px; font-weight: 400; }
+body { opacity: 0; animation: fadeIn 0.5s ease forwards; } body.fade-out { animation: fadeOut 0.3s ease forwards; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeOut { from { opacity: 1; } to { opacity: 0; } }
+</style>
+</head>
+<body>
+<div class="accent-bar"></div>
+<div class="container">
+  <div class="eyebrow"><i data-lucide="compass" aria-hidden="true"></i> 한화시스템/ICT · 사업기획·전략 동료 공유</div>
+  <h1 class="title">ICT, 지금 <em>어디쯤</em> 와 있고 —<br/>새 사업 아이디어는 <em>어떻게</em> 찾아볼까</h1>
+  <p class="subtitle"><strong>결론 내는 문서가 아닌, 같이 한 번 정렬해보는 자료예요.</strong> 우리 위치를 숫자로 짧게 정리하고, 새 사업 영역 후보를 같이 채워볼 <strong>3가지 관점과 한 장짜리 캔버스</strong>를 공유드립니다. 구체 후보를 박아두기보다, <strong>"어디서부터 어떻게 찾을지"</strong> 의 틀을 같이 보는 게 이번 자료 의도예요.</p>
+
+  <div class="kpi-row">
+    <div class="kpi">
+      <div class="label">ICT 매출 (2024~25)</div>
+      <div class="value">6,500<span class="unit">~ 6,950억</span></div>
+      <div class="hint">'24 6,948억 · '25 6,526억 · 영업이익 약 560억</div>
+    </div>
+    <div class="kpi orange">
+      <div class="label">캡티브 비중</div>
+      <div class="value">70~80<span class="unit">%</span></div>
+      <div class="hint">계열 내부 매출 의존</div>
+    </div>
+    <div class="kpi green">
+      <div class="label">출처 확인 자산</div>
+      <div class="value">6<span class="unit">+ 1 Watchlist</span></div>
+      <div class="hint">EasyOne · W1NE · 3사 ERP 등</div>
+    </div>
+    <div class="kpi gray">
+      <div class="label">오늘 자리 목적</div>
+      <div class="value">방향 정렬</div>
+      <div class="hint">결론 X · 같이 채울 틀 O</div>
+    </div>
+  </div>
+
+  <div class="invite-strip">
+    <i data-lucide="messages-square" aria-hidden="true"></i>
+    <div class="txt"><strong>오늘 안에 다 정하지 않아도 돼요</strong> — 위치·자산·기준·관점까지 같이 보고, 구체 아이디어는 시간을 두고 한 장짜리 캔버스에 같이 채워보면 좋을 것 같습니다. <strong style="color:#c97000;">Part 4(09~13)</strong>는 deep-research·gemini-search 두 보고서를 같은 양식에 옮긴 <strong style="color:#c97000;">"예시 적용"</strong> 5장 — 결정된 라인업이 아니라, 같이 추려볼 <strong>후보 모음</strong>이에요.</div>
+  </div>
+
+  <div class="meta">
+    <span>작성 <strong>SCM4팀</strong></span>
+    <span class="dot"></span>
+    <span>기반 <strong>q_list-answers · 신규사업 검토 메모 · 슬라이드 v1</strong></span>
+    <span class="dot"></span>
+    <span><strong>2026-05-21</strong></span>
+  </div>
+
+  <a class="cta" href="01-where-we-are.html" onclick="event.preventDefault(); navigateTo(this.href)">
+    같이 살펴보기 <i data-lucide="arrow-right" aria-hidden="true"></i>
+  </a>
+
+  <div class="term-note">
+    <span class="tlbl">용어</span>
+    <strong>Captive</strong> 계열 내부거래 매출 비중<span class="sep">·</span>
+    <strong>대외 자산</strong> 외부 영업·재포장에 쓸 수 있는 실적·솔루션·플랫폼<span class="sep">·</span>
+    <strong>관점 / Perspective</strong> 아이디어를 볼 때 쓰는 시각 (예: 자산 재포장·빈자리·인접 확장)<span class="sep">·</span>
+    <strong>Brain Dump</strong> 정리 전, 떠오르는 것을 빠르게 한 장에 모아두는 작업
+  </div>
+</div>
+
+<nav class="slide-nav">
+  <div class="slide-nav-inner">
+    <div class="nav-left"><span class="nav-disabled">&larr; 이전</span></div>
+    <div class="nav-center"><a href="index.html">1 / 15</a></div>
+    <div class="nav-right"><a href="01-where-we-are.html" onclick="event.preventDefault(); navigateTo(this.href)">다음 &rarr;</a></div>
+  </div>
+</nav>
+<script>
+if (window.lucide) lucide.createIcons();
+function navigateTo(url) { document.body.classList.add('fade-out'); setTimeout(function() { window.location.href = url; }, 300); }
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'ArrowRight') navigateTo('01-where-we-are.html');
+});
+</script>
+</body>
+</html>

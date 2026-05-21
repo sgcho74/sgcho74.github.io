@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1280">
+<title>동급·상위 SI는 이미 캡티브를 빠르게 낮추는 중 — LG CNS 68.6%→52.3%, CJ 대외 31%</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #ffffff; font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; color: #1d1d1f; min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 56px 0 80px; -webkit-font-smoothing: antialiased; letter-spacing: -0.012em; }
+.container { width: 1280px; padding: 0 80px; display: flex; flex-direction: column; align-items: center; }
+.eyebrow { font-size: 12px; font-weight: 600; color: #6e6e73; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 14px; }
+.title { font-size: 42px; font-weight: 700; line-height: 1.14; letter-spacing: -0.028em; text-align: center; color: #1d1d1f; margin-bottom: 14px; max-width: 1080px; }
+.title em { color: #0066cc; font-style: normal; }
+.subtitle { font-size: 17px; color: #6e6e73; text-align: center; max-width: 940px; line-height: 1.55; margin-bottom: 30px; }
+.subtitle strong { color: #1d1d1f; font-weight: 600; }
+
+.bench-table { width: 100%; max-width: 1120px; display: grid; grid-template-columns: 160px 150px 1fr 1.4fr 110px; border-radius: 16px; overflow: hidden; border: 1px solid #e0e0e0; background: #ffffff; margin-bottom: 22px; }
+.bench-table .h { background: #f5f5f7; padding: 11px 16px; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #1d1d1f; border-bottom: 1px solid #e0e0e0; }
+.bench-table .cell { padding: 13px 16px; font-size: 13px; line-height: 1.5; border-top: 1px solid #f0f0f0; color: #3a3a3c; }
+.bench-table .cell.co { font-weight: 700; color: #1d1d1f; display: flex; align-items: center; gap: 8px; }
+.bench-table .cell.co .dot { width: 8px; height: 8px; border-radius: 50%; }
+.bench-table .cell.cap { font-weight: 700; font-variant-numeric: tabular-nums; }
+.bench-table .cell.cap.green { color: #28a745; }
+.bench-table .cell.cap.red { color: #d70015; }
+.bench-table .cell.cap .delta { font-size: 11px; font-weight: 500; color: #86868b; margin-left: 4px; }
+.bench-table .cell strong { color: #1d1d1f; font-weight: 700; }
+.bench-table .row-hwsys { background: rgba(215,0,21,0.025); }
+.bench-table .row-hwsys .cell { color: #6e6e73; font-style: italic; }
+.bench-table .row-hwsys .cell.co { font-style: normal; color: #d70015; }
+.bench-table .row-hwsys .cell.cap { color: #d70015; font-style: normal; }
+
+.takeaway { width: 100%; max-width: 1120px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-bottom: 16px; }
+.take-card { padding: 18px 20px; border-radius: 14px; border: 1px solid #e0e0e0; background: #ffffff; }
+.take-card.a { border-color: rgba(40,167,69,0.32); background: linear-gradient(180deg, rgba(40,167,69,0.04), #ffffff); }
+.take-card.b { border-color: rgba(0,102,204,0.32); background: linear-gradient(180deg, rgba(0,102,204,0.04), #ffffff); }
+.take-card .lbl { font-size: 10.5px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 6px; }
+.take-card.a .lbl { color: #28a745; }
+.take-card.b .lbl { color: #0066cc; }
+.take-card .msg { font-size: 14.5px; font-weight: 700; color: #1d1d1f; letter-spacing: -0.012em; line-height: 1.42; margin-bottom: 6px; }
+.take-card .desc { font-size: 12.5px; color: #3a3a3c; line-height: 1.55; }
+.take-card .desc strong { color: #1d1d1f; font-weight: 700; }
+
+.term-note { width: 100%; max-width: 1120px; padding: 10px 16px 0; margin-top: 14px; font-size: 10.5px; color: #86868b; line-height: 1.7; text-align: left; border-top: 1px dashed #e0e0e0; }
+.term-note .tlbl { display: inline-block; font-size: 9.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 7px; border-radius: 9999px; background: #f5f5f7; color: #6e6e73; margin-right: 8px; vertical-align: 1px; }
+.term-note strong { color: #1d1d1f; font-weight: 700; }
+.term-note .sep { color: #d2d2d7; margin: 0 7px; }
+
+.breadcrumb-index { position: fixed; top: 22px; right: 32px; z-index: 10000; display: flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 9999px; background: rgba(255,255,255,0.84); border: 1px solid #e0e0e0; backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); font-size: 12px; color: #6e6e73; }
+.breadcrumb-index .sep { color: #c7c7cc; } .breadcrumb-index strong { color: #1d1d1f; font-weight: 700; }
+.slide-title-index { position: fixed; top: 22px; left: 32px; z-index: 10000; max-width: 740px; padding: 8px 14px; border-radius: 9999px; background: rgba(255,255,255,0.84); border: 1px solid #e0e0e0; backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); color: #1d1d1f; font-size: 12px; font-weight: 700; white-space: nowrap; }
+.slide-nav { position: fixed; bottom: 0; left: 0; right: 0; height: 50px; background: rgba(255,255,255,0.92); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-top: 1px solid #e0e0e0; display: flex; align-items: center; justify-content: center; z-index: 9999; }
+.slide-nav-inner { width: 1280px; display: flex; align-items: center; justify-content: space-between; padding: 0 60px; }
+.slide-nav a { text-decoration: none; font-size: 14px; font-weight: 600; color: #0066cc; }
+.slide-nav .nav-center a { color: #6e6e73; font-size: 13px; font-weight: 400; }
+body { opacity: 0; animation: fadeIn 0.4s ease forwards; } body.fade-out { animation: fadeOut 0.3s ease forwards; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeOut { from { opacity: 1; } to { opacity: 0; transform: translateY(-12px); } }
+</style>
+</head>
+<body>
+<div class="slide-title-index"><span style="color:#6e6e73;font-weight:600;">어디쯤</span><span style="color:#c7c7cc;margin:0 7px;">·</span>벤치마크 — 동급·상위 SI</div>
+<div class="breadcrumb-index"><span>Part 1</span><span class="sep">›</span><span>Peers</span><span class="sep">›</span><strong>4 / 15</strong></div>
+
+<div class="container">
+  <p class="eyebrow">SLIDE 03 · 동급·상위 SI는 어떻게 움직이는지</p>
+  <h1 class="title">동급·상위 SI는 이미 캡티브를 <em>빠르게 낮추는 중</em> —<br/>LG CNS 68.6%→52.3%, CJ 대외 31%</h1>
+  <p class="subtitle">우리만 고민하는 주제는 아니에요. <strong>동급(CJ) · 상위(LG CNS)</strong> 모두 같은 방향으로 움직였고, 둘 다 공통적으로 쓴 공식이 <strong>"내부에서 검증된 솔루션을 외부로 다시 정리"</strong> 였습니다. 우리도 캡티브 자산이 적은 편은 아니라 — 다음 장 자산 맵에서 한 번 같이 봅니다. <strong>(표 기준년도 · LG CNS·CJ 2025 / 삼성SDS·SK AX 2024 / 한화시스템/ICT 2024~25)</strong></p>
+
+  <div class="bench-table">
+    <div class="h">기업</div>
+    <div class="h">캡티브 비중 (기준년도)</div>
+    <div class="h">대외 전략 핵심</div>
+    <div class="h">시사점</div>
+    <div class="h">출처</div>
+
+    <div class="cell co"><span class="dot" style="background:#0066cc;"></span>LG CNS</div>
+    <div class="cell cap green">52.3% <span class="delta">(2025 · ▼16.3%p)</span></div>
+    <div class="cell">SINGLEX · MOP · Palantir·OpenAI 파트너십</div>
+    <div class="cell"><strong>내부 솔루션 선행 개발 → 대외 확장</strong>, 2025 매출 6.1조·영업이익 +29.2%</div>
+    <div class="cell" style="font-size:11px;color:#86868b;">deep-research §36</div>
+
+    <div class="cell co"><span class="dot" style="background:#34c759;"></span>CJ올리브네트웍스</div>
+    <div class="cell cap green">~69% <span class="delta">(2025 · 대외 31%)</span></div>
+    <div class="cell">바이오·제약 ITO 수주 (씨젠·HK이노엔·한국콜마)</div>
+    <div class="cell">한화와 <strong>동급 체급</strong> (2025 매출 8,532억, 영업이익 +45.2%)</div>
+    <div class="cell" style="font-size:11px;color:#86868b;">gemini-search §30·150</div>
+
+    <div class="cell co"><span class="dot" style="background:#ff9500;"></span>삼성SDS</div>
+    <div class="cell cap" style="color:#3a3a3c;">~70% <span class="delta">(2024)</span></div>
+    <div class="cell">FabriX · Brity · SCP · KKR M&amp;A</div>
+    <div class="cell">플랫폼·AX <strong>투자 규모</strong>로 승부 (2024 매출 13.8조)</div>
+    <div class="cell" style="font-size:11px;color:#86868b;">deep-research §36</div>
+
+    <div class="cell co"><span class="dot" style="background:#af52de;"></span>SK AX</div>
+    <div class="cell cap" style="color:#3a3a3c;">~60% <span class="delta">(2024 추정)</span></div>
+    <div class="cell">Solur · iFacts · 제조·금융 AX</div>
+    <div class="cell">에이전틱 AI + 산업 특화 — 생산성 30% 강조</div>
+    <div class="cell" style="font-size:11px;color:#86868b;">deep-research §93</div>
+
+    <div class="cell co row-hwsys" style="background:transparent;"><span class="dot" style="background:#d70015;"></span>한화시스템/ICT</div>
+    <div class="cell cap row-hwsys" style="background:transparent;">70~80% <span class="delta" style="color:#86868b;">(2024~25)</span></div>
+    <div class="cell row-hwsys" style="background:transparent;">EasyOne · W1NE · 3사 ERP 통합 (제한적)</div>
+    <div class="cell row-hwsys" style="background:transparent;"><strong>대외 확장 공식 적용은 가능</strong>, 단 자산화·재포장 단계 필요 — 매출 6,500~6,950억</div>
+    <div class="cell row-hwsys" style="background:transparent;font-size:11px;">deep-research §32 · gemini §31</div>
+  </div>
+
+  <div class="takeaway">
+    <div class="take-card a">
+      <div class="lbl">같이 본 시사점 ①</div>
+      <div class="msg">공식 자체는 새롭지 않고, "이미 통한" 공식이에요</div>
+      <div class="desc">LG CNS·CJ 둘 다 <strong>"캡티브 자산을 외부 상품으로 재포장"</strong> 한 흐름. 우리만 처음 시도하는 가설이 아니라는 점이 부담을 좀 덜어줍니다.</div>
+    </div>
+    <div class="take-card b">
+      <div class="lbl">같이 본 시사점 ②</div>
+      <div class="msg">Tier-1과 정면으로 부딪힐 일은 별로 없어요</div>
+      <div class="desc">FabriX·Solur 같은 대형 AX 플랫폼은 Tier-1의 영역. <strong>그들이 안 들어간 빈자리</strong> 가 우리 진입로가 될 텐데, 그 후보 3개를 다음 장에서 같이 보겠습니다.</div>
+    </div>
+  </div>
+
+  <div class="term-note">
+    <span class="tlbl">용어</span>
+    <strong>Tier-1</strong> 삼성SDS·LG CNS·SK AX 같은 대형 SI<span class="sep">·</span>
+    <strong>SINGLEX / MOP / FabriX / Solur</strong> 각 사 대표 AX 플랫폼·솔루션 브랜드<span class="sep">·</span>
+    <strong>대외 확장 공식</strong> 캡티브에서 만든 솔루션을 외부 고객용으로 재구성·판매하는 패턴 (LG CNS 사례에서 검증)
+  </div>
+</div>
+
+<nav class="slide-nav">
+  <div class="slide-nav-inner">
+    <div class="nav-left"><a href="02-three-shifts.html" onclick="event.preventDefault(); navigateTo(this.href)">&larr; 이전</a></div>
+    <div class="nav-center"><a href="index.html">4 / 15</a></div>
+    <div class="nav-right"><a href="04-tier1-gap.html" onclick="event.preventDefault(); navigateTo(this.href)">다음 &rarr;</a></div>
+  </div>
+</nav>
+<script>
+if (window.lucide) lucide.createIcons();
+function navigateTo(url) { document.body.classList.add('fade-out'); setTimeout(function() { window.location.href = url; }, 300); }
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'ArrowLeft') navigateTo('02-three-shifts.html');
+  if (e.key === 'ArrowRight') navigateTo('04-tier1-gap.html');
+});
+</script>
+</body>
+</html>

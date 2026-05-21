@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1280">
+<title>오늘 의견 듣고 싶은 3가지 — 진입 기준 · 빠진 관점 · 이후 진행 방식</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #ffffff; font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; color: #1d1d1f; min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 56px 0 80px; -webkit-font-smoothing: antialiased; letter-spacing: -0.012em; }
+.container { width: 1280px; padding: 0 80px; display: flex; flex-direction: column; align-items: center; }
+.eyebrow { font-size: 12px; font-weight: 600; color: #6e6e73; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 14px; }
+.title { font-size: 42px; font-weight: 700; line-height: 1.14; letter-spacing: -0.028em; text-align: center; color: #1d1d1f; margin-bottom: 14px; max-width: 1080px; }
+.title em { color: #af52de; font-style: normal; }
+.subtitle { font-size: 17px; color: #6e6e73; text-align: center; max-width: 940px; line-height: 1.55; margin-bottom: 32px; }
+.subtitle strong { color: #1d1d1f; font-weight: 600; }
+
+.q-grid { width: 100%; max-width: 1140px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 11px; margin-bottom: 20px; }
+.q-card { padding: 18px 18px; border-radius: 16px; border: 1px solid #e0e0e0; background: #ffffff; display: flex; flex-direction: column; gap: 10px; min-height: 340px; position: relative; }
+.q-card .head { display: flex; align-items: center; gap: 9px; }
+.q-card .qnum { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; font-size: 14.5px; font-weight: 800; color: #ffffff; letter-spacing: -0.02em; flex-shrink: 0; }
+.q-card.q1 .qnum { background: #0066cc; }
+.q-card.q2 .qnum { background: #28a745; }
+.q-card.q3 .qnum { background: #af52de; }
+.q-card.q4 .qnum { background: #c97000; }
+.q-card .topic { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+.q-card.q1 .topic { color: #0066cc; }
+.q-card.q2 .topic { color: #28a745; }
+.q-card.q3 .topic { color: #af52de; }
+.q-card.q4 .topic { color: #c97000; }
+.q-card .qtxt { font-size: 14.5px; font-weight: 700; color: #1d1d1f; letter-spacing: -0.012em; line-height: 1.36; }
+.q-card .qtxt em { font-style: normal; }
+.q-card.q1 .qtxt em { color: #0066cc; }
+.q-card.q2 .qtxt em { color: #28a745; }
+.q-card.q3 .qtxt em { color: #af52de; }
+.q-card.q4 .qtxt em { color: #c97000; }
+.q-card .ctx { font-size: 11.5px; color: #6e6e73; line-height: 1.55; }
+.q-card .ctx strong { color: #1d1d1f; font-weight: 700; }
+.q-card .opts { padding: 10px 12px; border-radius: 10px; background: #f8f8fa; display: flex; flex-direction: column; gap: 5px; margin-top: auto; }
+.q-card .opts .lbl { font-size: 9.5px; font-weight: 700; color: #6e6e73; letter-spacing: 0.06em; text-transform: uppercase; }
+.q-card .opts ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 4px; }
+.q-card .opts li { font-size: 10.5px; color: #3a3a3c; padding-left: 11px; position: relative; line-height: 1.5; }
+.q-card .opts li::before { content: "▸"; position: absolute; left: 0; top: 0; font-size: 9px; }
+.q-card.q1 .opts li::before { color: #0066cc; }
+.q-card.q2 .opts li::before { color: #28a745; }
+.q-card.q3 .opts li::before { color: #af52de; }
+.q-card.q4 .opts li::before { color: #c97000; }
+.q-card .opts li strong { color: #1d1d1f; font-weight: 700; }
+
+.close-strip { width: 100%; max-width: 1120px; padding: 18px 24px; border-radius: 14px; background: linear-gradient(135deg, rgba(175,82,222,0.05), rgba(0,102,204,0.04)); border: 1px solid rgba(175,82,222,0.22); display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
+.close-strip svg { width: 22px; height: 22px; stroke-width: 2; color: #af52de; flex-shrink: 0; }
+.close-strip .txt { font-size: 13.5px; color: #1d1d1f; line-height: 1.55; }
+.close-strip .txt strong { color: #af52de; font-weight: 700; }
+
+.followup { width: 100%; max-width: 1120px; padding: 12px 18px; border-radius: 10px; background: #f8f8fa; font-size: 11.5px; color: #6e6e73; line-height: 1.55; display: flex; align-items: center; gap: 10px; }
+.followup svg { width: 14px; height: 14px; stroke-width: 2; color: #86868b; flex-shrink: 0; }
+.followup strong { color: #1d1d1f; font-weight: 700; }
+
+.term-note { width: 100%; max-width: 1120px; padding: 10px 16px 0; margin-top: 12px; font-size: 10.5px; color: #86868b; line-height: 1.7; text-align: left; border-top: 1px dashed #e0e0e0; }
+.term-note .tlbl { display: inline-block; font-size: 9.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 7px; border-radius: 9999px; background: #f5f5f7; color: #6e6e73; margin-right: 8px; vertical-align: 1px; }
+.term-note strong { color: #1d1d1f; font-weight: 700; }
+.term-note .sep { color: #d2d2d7; margin: 0 7px; }
+
+.breadcrumb-index { position: fixed; top: 22px; right: 32px; z-index: 10000; display: flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 9999px; background: rgba(255,255,255,0.84); border: 1px solid #e0e0e0; backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); font-size: 12px; color: #6e6e73; }
+.breadcrumb-index .sep { color: #c7c7cc; } .breadcrumb-index strong { color: #1d1d1f; font-weight: 700; }
+.slide-title-index { position: fixed; top: 22px; left: 32px; z-index: 10000; max-width: 740px; padding: 8px 14px; border-radius: 9999px; background: rgba(255,255,255,0.84); border: 1px solid #e0e0e0; backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); color: #1d1d1f; font-size: 12px; font-weight: 700; white-space: nowrap; }
+.slide-nav { position: fixed; bottom: 0; left: 0; right: 0; height: 50px; background: rgba(255,255,255,0.92); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-top: 1px solid #e0e0e0; display: flex; align-items: center; justify-content: center; z-index: 9999; }
+.slide-nav-inner { width: 1280px; display: flex; align-items: center; justify-content: space-between; padding: 0 60px; }
+.slide-nav a { text-decoration: none; font-size: 14px; font-weight: 600; color: #0066cc; }
+.slide-nav .nav-disabled { font-size: 14px; font-weight: 600; color: #c7c7cc; cursor: default; }
+.slide-nav .nav-center a { color: #6e6e73; font-size: 13px; font-weight: 400; }
+body { opacity: 0; animation: fadeIn 0.4s ease forwards; } body.fade-out { animation: fadeOut 0.3s ease forwards; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeOut { from { opacity: 1; } to { opacity: 0; transform: translateY(-12px); } }
+</style>
+</head>
+<body>
+<div class="slide-title-index"><span style="color:#6e6e73;font-weight:600;">Discussion</span><span style="color:#c7c7cc;margin:0 7px;">·</span>오늘 의견 듣고 싶은 4가지</div>
+<div class="breadcrumb-index"><span>Closing</span><span class="sep">›</span><span>Open Questions</span><span class="sep">›</span><strong>15 / 15</strong></div>
+
+<div class="container">
+  <p class="eyebrow">SLIDE 14 · 같이 의견 나누고 싶은 부분</p>
+  <h1 class="title">오늘 의견 듣고 싶은 <em>4가지</em> —<br/>진입 기준 · 빠진 관점 · 이후 진행 방식 · <em style="color:#c97000;">Part 4 ITO 후보</em></h1>
+  <p class="subtitle">결론 내는 자리가 아니라 <strong>이후에 어떻게 이어갈지</strong> 같이 보는 자리라 생각하고, 큰 질문 4개만 띄워뒀습니다. <strong>Q4는 Part 4 응용 부분 전용</strong>(슬라이드 09~13 · 후보 12개·포지션 3개) — 분량이 deck 33%인데 직접 묻는 질문이 없으면 의견 통로가 좁아서 새로 넣었어요.</p>
+
+  <div class="q-grid">
+    <div class="q-card q1">
+      <div class="head">
+        <div class="qnum">1</div>
+        <div>
+          <div class="topic">진입 기준</div>
+        </div>
+      </div>
+      <div class="qtxt">슬라이드 06의 <em>4가지 기준</em>, 이대로 가도 괜찮을까요?</div>
+      <div class="ctx">기준이 너무 빡빡하면 후보가 안 나오고, 너무 헐겁게 두면 우선순위가 안 잡혀요. <strong>4개 중 어떤 걸 필수로, 어떤 걸 가점으로</strong> 둘지 의견 부탁드립니다 — Part 4 ITO 12개 후보를 거를 때 동일 기준 적용 예정.</div>
+      <div class="opts">
+        <div class="lbl">예시 옵션</div>
+        <ul>
+          <li>① + ③ <strong>필수</strong>, ② + ④ 가점</li>
+          <li>4개 모두 <strong>필수</strong></li>
+          <li>다른 기준 추가 제안</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="q-card q2">
+      <div class="head">
+        <div class="qnum">2</div>
+        <div>
+          <div class="topic">빠진 관점</div>
+        </div>
+      </div>
+      <div class="qtxt">슬라이드 07의 <em>3가지 관점</em> 외에 같이 봤으면 하는 시각이 있을까요?</div>
+      <div class="ctx">현재는 자산 재포장 · Tier-1 빈자리 · 모회사 인접. Part 4에서 한 가지를 더 적용해봤어요 — <strong>"계열사 운영 접점 강도"</strong> 관점. 이 외에 추가할 게 있을까요?</div>
+      <div class="opts">
+        <div class="lbl">고민해본 후보 (검토 필요)</div>
+        <ul>
+          <li><strong>글로벌</strong> — 그룹 해외 거점 leverage</li>
+          <li><strong>파트너십</strong> — SaaS·LLM 벤더 리셀</li>
+          <li><strong>인수·지분</strong> — 작은 솔루션사 흡수</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="q-card q3">
+      <div class="head">
+        <div class="qnum">3</div>
+        <div>
+          <div class="topic">이후 진행 방식</div>
+        </div>
+      </div>
+      <div class="qtxt">다음에 보실 때 <em>어떤 방식</em>이 가장 편하실까요?</div>
+      <div class="ctx">Brain Dump 캔버스 + Part 4 ITO 12개 후보를 같이 추려보는 자리예요. 인원·시간·방식에 따라 효과가 많이 달라져서, 미리 합 맞춰두면 좋을 것 같습니다.</div>
+      <div class="opts">
+        <div class="lbl">예시 옵션</div>
+        <ul>
+          <li><strong>오프라인 90분</strong> 모임 (5~8명)</li>
+          <li><strong>비동기</strong> Notion·Confluence 공유 채움</li>
+          <li><strong>혼합</strong> — 각자 채우고 60분 리뷰</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="q-card q4">
+      <div class="head">
+        <div class="qnum">4</div>
+        <div>
+          <div class="topic">Part 4 ITO 응용 (NEW)</div>
+        </div>
+      </div>
+      <div class="qtxt"><em>Part 4</em> 후보·포지션 — 지금 합의해두면 좋은 부분은?</div>
+      <div class="ctx">슬라이드 11(후보 12개) · 12(단계형 로드맵) · 13(포지션 후보 A/B/C) 전체에 대한 1차 의견 통로예요. 단기 3개·포지션 메인/가점이 가장 큰 갈림길.</div>
+      <div class="opts">
+        <div class="lbl">짚어볼 4가지</div>
+        <ul>
+          <li>단기 3개 (호텔 AICC / 갤러리아 CDP / 건설 H-HIMS) — <strong>이대로?</strong></li>
+          <li><strong>빠진 후보</strong>는 (예: 비계열 보험 코어, 중견 90일 AI)</li>
+          <li>포지션 A/B/C — <strong>메인 1~2 + 가점 1</strong> 어떻게?</li>
+          <li>머시너리홀딩스(2026 하반기) — <strong>catalyst vs 전제</strong>?</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="close-strip">
+    <i data-lucide="message-circle" aria-hidden="true"></i>
+    <div class="txt">아이디어 차원에서만 이야기 해도 좋을 것 같습니다.</div>
+  </div>
+
+  <div class="followup">
+    <i data-lucide="alert-triangle" aria-hidden="true"></i>
+    <div><strong>참고</strong> — 위 질문 문구는 <strong>초안</strong>이에요. 필요하다면 더 다듬을 수 있습니다.</div>
+  </div>
+
+  <div class="term-note">
+    <span class="tlbl">용어</span>
+    <strong>진입 기준</strong> 신규 아이디어를 가져갈지·뺄지 거를 때 보는 체크리스트<span class="sep">·</span>
+    <strong>비동기 방식</strong> 같은 시간에 모이지 않고 각자 채워두는 방식 (Notion·Confluence 등)<span class="sep">·</span>
+    <strong>혼합형</strong> 비동기 채움 + 짧은 동기 리뷰 미팅 결합
+  </div>
+</div>
+
+<nav class="slide-nav">
+  <div class="slide-nav-inner">
+    <div class="nav-left"><a href="13-ito-positioning.html" onclick="event.preventDefault(); navigateTo(this.href)">&larr; 이전</a></div>
+    <div class="nav-center"><a href="index.html">15 / 15</a></div>
+    <div class="nav-right"><a href="index.html" onclick="event.preventDefault(); navigateTo(this.href)">목차로 &rarr;</a></div>
+  </div>
+</nav>
+<script>
+if (window.lucide) lucide.createIcons();
+function navigateTo(url) { document.body.classList.add('fade-out'); setTimeout(function() { window.location.href = url; }, 300); }
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'ArrowLeft') navigateTo('13-ito-positioning.html');
+  if (e.key === 'ArrowRight') navigateTo('index.html');
+});
+</script>
+</body>
+</html>

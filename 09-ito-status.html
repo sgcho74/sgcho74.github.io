@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1280">
+<title>ITO를 따로 떼어보면 — ICT부문 안에 그룹향 운영 매출 약 5,000억이 안정적으로 자리잡고 있어요</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #ffffff; font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; color: #1d1d1f; min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 56px 0 80px; -webkit-font-smoothing: antialiased; letter-spacing: -0.012em; }
+.container { width: 1280px; padding: 0 80px; display: flex; flex-direction: column; align-items: center; }
+.eyebrow { font-size: 12px; font-weight: 600; color: #6e6e73; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 14px; }
+.title { font-size: 40px; font-weight: 700; line-height: 1.14; letter-spacing: -0.028em; text-align: center; color: #1d1d1f; margin-bottom: 12px; max-width: 1100px; }
+.title em { color: #0a84a0; font-style: normal; }
+.title em.warn { color: #c97000; }
+.subtitle { font-size: 16px; color: #6e6e73; text-align: center; max-width: 980px; line-height: 1.55; margin-bottom: 22px; }
+.subtitle strong { color: #1d1d1f; font-weight: 600; }
+
+.kpi-row { width: 100%; max-width: 1120px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 14px; }
+.kpi { padding: 16px 18px; border-radius: 14px; border: 1px solid #e0e0e0; background: #ffffff; }
+.kpi .lbl { font-size: 10px; font-weight: 700; color: #6e6e73; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 6px; }
+.kpi .val { font-size: 23px; font-weight: 800; color: #1d1d1f; letter-spacing: -0.024em; line-height: 1.1; }
+.kpi .val em { color: #0a84a0; font-style: normal; }
+.kpi .val .u { font-size: 12px; color: #6e6e73; font-weight: 600; margin-left: 3px; }
+.kpi .sub { font-size: 11px; color: #86868b; margin-top: 5px; line-height: 1.45; }
+.kpi .sub strong { color: #3a3a3c; font-weight: 700; }
+.kpi.teal .val { color: #0a84a0; }
+.kpi.warn .val { color: #c97000; }
+
+.split { width: 100%; max-width: 1120px; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+.panel { padding: 18px 20px; border-radius: 14px; border: 1px solid #e0e0e0; background: #ffffff; }
+.panel h3 { font-size: 13px; font-weight: 700; color: #1d1d1f; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; letter-spacing: -0.008em; }
+.panel h3 .dot { width: 6px; height: 6px; border-radius: 50%; }
+.panel h3 .dot.t { background: #0a84a0; }
+.panel h3 .dot.g { background: #28a745; }
+.panel h3 .badge { font-size: 9.5px; padding: 2px 8px; border-radius: 9999px; background: #f5f5f7; color: #6e6e73; font-weight: 700; letter-spacing: 0.04em; margin-left: auto; }
+
+.scope-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.scope { padding: 9px 12px; border-radius: 8px; background: #f8f8fa; font-size: 11.5px; line-height: 1.45; color: #3a3a3c; display: flex; gap: 8px; align-items: flex-start; }
+.scope .ic { color: #0a84a0; font-weight: 800; font-size: 11px; flex-shrink: 0; min-width: 18px; }
+.scope strong { color: #1d1d1f; font-weight: 700; }
+
+.assets-list { display: flex; flex-direction: column; gap: 7px; }
+.asset-row { display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-radius: 8px; background: #f8f8fa; }
+.asset-row .nm { font-size: 12px; font-weight: 700; color: #1d1d1f; min-width: 92px; letter-spacing: -0.008em; }
+.asset-row .ds { font-size: 11.5px; color: #6e6e73; line-height: 1.42; flex: 1; }
+.asset-row .ds strong { color: #3a3a3c; font-weight: 700; }
+.asset-row .tag { font-size: 9px; font-weight: 700; padding: 2px 6px; border-radius: 9999px; background: rgba(10,132,160,0.12); color: #0a84a0; letter-spacing: 0.04em; flex-shrink: 0; }
+
+.framing-strip { width: 100%; max-width: 1120px; padding: 12px 18px; border-radius: 12px; background: linear-gradient(135deg, rgba(255,149,0,0.06), rgba(10,132,160,0.05)); border: 1px solid rgba(255,149,0,0.28); display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+.framing-strip svg { width: 18px; height: 18px; stroke-width: 2; color: #c97000; flex-shrink: 0; }
+.framing-strip .txt { font-size: 12px; color: #1d1d1f; line-height: 1.55; }
+.framing-strip .txt strong { color: #c97000; font-weight: 700; }
+.bottom-line { width: 100%; max-width: 1120px; padding: 14px 20px; border-radius: 12px; background: linear-gradient(135deg, rgba(10,132,160,0.06), rgba(0,102,204,0.04)); border: 1px solid rgba(10,132,160,0.24); display: flex; align-items: center; gap: 12px; }
+.bottom-line svg { width: 20px; height: 20px; stroke-width: 2; color: #0a84a0; flex-shrink: 0; }
+.bottom-line .txt { font-size: 13px; color: #1d1d1f; line-height: 1.55; }
+.bottom-line .txt strong { color: #0a84a0; font-weight: 700; }
+
+.term-note { width: 100%; max-width: 1120px; padding: 10px 16px 0; margin-top: 10px; font-size: 10.5px; color: #86868b; line-height: 1.7; text-align: left; border-top: 1px dashed #e0e0e0; }
+.term-note .tlbl { display: inline-block; font-size: 9.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 7px; border-radius: 9999px; background: #f5f5f7; color: #6e6e73; margin-right: 8px; vertical-align: 1px; }
+.term-note strong { color: #1d1d1f; font-weight: 700; }
+.term-note .sep { color: #d2d2d7; margin: 0 7px; }
+
+.breadcrumb-index { position: fixed; top: 22px; right: 32px; z-index: 10000; display: flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 9999px; background: rgba(255,255,255,0.84); border: 1px solid #e0e0e0; backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); font-size: 12px; color: #6e6e73; }
+.breadcrumb-index .sep { color: #c7c7cc; } .breadcrumb-index strong { color: #1d1d1f; font-weight: 700; }
+.slide-title-index { position: fixed; top: 22px; left: 32px; z-index: 10000; max-width: 740px; padding: 8px 14px; border-radius: 9999px; background: rgba(255,255,255,0.84); border: 1px solid #e0e0e0; backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); color: #1d1d1f; font-size: 12px; font-weight: 700; white-space: nowrap; }
+.slide-nav { position: fixed; bottom: 0; left: 0; right: 0; height: 50px; background: rgba(255,255,255,0.92); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-top: 1px solid #e0e0e0; display: flex; align-items: center; justify-content: center; z-index: 9999; }
+.slide-nav-inner { width: 1280px; display: flex; align-items: center; justify-content: space-between; padding: 0 60px; }
+.slide-nav a { text-decoration: none; font-size: 14px; font-weight: 600; color: #0066cc; }
+.slide-nav .nav-center a { color: #6e6e73; font-size: 13px; font-weight: 400; }
+body { opacity: 0; animation: fadeIn 0.4s ease forwards; } body.fade-out { animation: fadeOut 0.3s ease forwards; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeOut { from { opacity: 1; } to { opacity: 0; transform: translateY(-12px); } }
+</style>
+</head>
+<body>
+<div class="slide-title-index"><span style="color:#6e6e73;font-weight:600;">ITO 관점</span><span style="color:#c7c7cc;margin:0 7px;">·</span>ITO 사업 현황 — 재무·운영·자산</div>
+<div class="breadcrumb-index"><span>Part 4</span><span class="sep">›</span><span>ITO Status</span><span class="sep">›</span><strong>10 / 15</strong></div>
+
+<div class="container">
+  <p class="eyebrow">SLIDE 09 · Part 4 — ITO 관점으로 한번 더 응용해보기 (예시 적용)</p>
+  <h1 class="title">ITO를 따로 떼어보면 — ICT부문 <em>6,500~6,950억</em> 안에<br/>그룹향 운영 매출 <em>약 5,000억</em>이 안정적으로 받쳐주는 구조예요</h1>
+  <p class="subtitle">앞 슬라이드의 자산 맵·관점을 <strong>ITO 영역에 한 번 채워본 "예시 적용"</strong> 이 Part 4입니다. 한화시스템은 ITO를 ICT부문에 묶어서 공시하기 때문에 <strong>ITO 단독 매출은 비공개</strong>지만, <strong>특수관계자 기타매출</strong>(그룹향 운영 서비스 proxy)을 보면 4,400~5,000억대로 안정적이에요. <strong>(출처 — deep-research §3·§9·§19, gemini-search §3.1)</strong></p>
+
+  <div class="framing-strip">
+    <i data-lucide="alert-triangle" aria-hidden="true"></i>
+    <div class="txt"><strong>Part 4 = 예시 적용 5장</strong> — 현황(09) · 계열사(10) · 후보 12개(11) · 단계형 로드맵(12) · 포지션 후보 3개(13). 후보·기간·예산은 두 보고서 추정치이고, <strong>결정된 사업 라인업이 아니라 같이 추려볼 후보 모음</strong>이에요.</div>
+  </div>
+
+  <div class="kpi-row">
+    <div class="kpi">
+      <div class="lbl">ICT부문 매출 (2023→25)</div>
+      <div class="val">6,335 → 6,948 → 6,526<span class="u">억</span></div>
+      <div class="sub">SI + ITO 합산 · ITO 단독 미공개</div>
+    </div>
+    <div class="kpi teal">
+      <div class="lbl">특수관계자 기타매출 (그룹향 ITO proxy)</div>
+      <div class="val">4,432 → 4,985 → <em>4,967</em><span class="u">억</span></div>
+      <div class="sub"><strong>4,400~5,000억대 안정</strong> · 그룹향 운영·유지보수 근사치</div>
+    </div>
+    <div class="kpi">
+      <div class="lbl">ICT 영업이익 (2023→25)</div>
+      <div class="val">271 → 561 → 508<span class="u">억</span></div>
+      <div class="sub">2024 수익성 점프 후 7%대 후반 유지</div>
+    </div>
+    <div class="kpi warn">
+      <div class="lbl">2026 1Q ICT (성장 지표)</div>
+      <div class="val">1,723<span class="u">억 / +22%</span></div>
+      <div class="sub">자회사 ERP·차세대 시스템 수주가 견인 (gemini §3.1)</div>
+    </div>
+  </div>
+
+  <div class="split">
+    <div class="panel">
+      <h3><span class="dot t"></span>ITO Scope — 공시상 6대 운영 영역<span class="badge">deep-research §11</span></h3>
+      <div class="scope-grid">
+        <div class="scope"><span class="ic">①</span><div><strong>운영·유지보수</strong> · 시스템 관리, 변경관리, 24/365 무중단</div></div>
+        <div class="scope"><span class="ic">②</span><div><strong>인프라·클라우드</strong> · DB/WAS/SAP, 멀티 DC, HPC/GPU</div></div>
+        <div class="scope"><span class="ic">③</span><div><strong>앱 관리</strong> · ERP/CRM/SCM/EDMS, 업종별 솔루션</div></div>
+        <div class="scope"><span class="ic">④</span><div><strong>보안·컴플라이언스</strong> · ITGC · ISO 20000 · BCP</div></div>
+        <div class="scope"><span class="ic">⑤</span><div><strong>ITSM·서비스데스크</strong> · ServiceNow 기반 통합 운영</div></div>
+        <div class="scope"><span class="ic">⑥</span><div><strong>신사업 연계</strong> · AI Agent · 클라우드 · Vertical AI</div></div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h3><span class="dot g"></span>운영형 신사업의 출발 자산<span class="badge">ICT 공식 + gemini §3</span></h3>
+      <div class="assets-list">
+        <div class="asset-row"><span class="nm">HiON</span><span class="ds">ITSM·ITAM·ITOM·지식관리 — 그룹 전사 운영 표준</span><span class="tag">운영</span></div>
+        <div class="asset-row"><span class="nm">AONCloud</span><span class="ds">멀티 DC 기반 클라우드 · GPU/HPC 서비스형 제공</span><span class="tag">인프라</span></div>
+        <div class="asset-row"><span class="nm">SFAR ERP</span><span class="ds">자체 프리미엄 ERP · <strong>MSA · MDD</strong> 적용 (gemini §3.2)</span><span class="tag">앱</span></div>
+        <div class="asset-row"><span class="nm">Eagle IBS</span><span class="ds">스마트빌딩 통합 (BA·TS·TC + BEMS)</span><span class="tag">시설</span></div>
+        <div class="asset-row"><span class="nm">HAIQV</span><span class="ds">자체 AI 플랫폼 — NLP·CV 엔진 (금융·제조·유통)</span><span class="tag">AI</span></div>
+        <div class="asset-row"><span class="nm">DC 3+1</span><span class="ds">판교·죽전·가산 (가동률 92.7%) + <strong>안성 알이씨 9.9MW (2026~)</strong></span><span class="tag">DC</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom-line">
+    <i data-lucide="layers" aria-hidden="true"></i>
+    <div class="txt">정리하면 — <strong>"공시상 ITO는 합산 안에 묻혀 있지만, 그룹향 운영 매출 ~5,000억과 6대 운영 영역, 6대 핵심 자산이 이미 손에 있어요."</strong> 다음 장에서 이 자산들이 4개 계열사의 디지털 과제와 어떻게 맞물리는지 매트릭스로 같이 보겠습니다.</div>
+  </div>
+
+  <div class="term-note">
+    <span class="tlbl">용어</span>
+    <strong>특수관계자 기타매출</strong> 별도 재무주석상 그룹사向 매출 — ITO 단독은 미공개라 운영 매출 proxy로 활용<span class="sep">·</span>
+    <strong>HiON · AONCloud · HAIQV</strong> 한화시스템/ICT의 운영·클라우드·AI 표준 플랫폼<span class="sep">·</span>
+    <strong>MSA · MDD</strong> Microservice Architecture · Model Driven Development — SFAR ERP의 차별 기술 (gemini §3.2)
+  </div>
+</div>
+
+<nav class="slide-nav">
+  <div class="slide-nav-inner">
+    <div class="nav-left"><a href="08-canvas.html" onclick="event.preventDefault(); navigateTo(this.href)">&larr; 이전</a></div>
+    <div class="nav-center"><a href="index.html">10 / 15</a></div>
+    <div class="nav-right"><a href="10-ito-affiliates.html" onclick="event.preventDefault(); navigateTo(this.href)">다음 &rarr;</a></div>
+  </div>
+</nav>
+<script>
+if (window.lucide) lucide.createIcons();
+function navigateTo(url) { document.body.classList.add('fade-out'); setTimeout(function() { window.location.href = url; }, 300); }
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'ArrowLeft') navigateTo('08-canvas.html');
+  if (e.key === 'ArrowRight') navigateTo('10-ito-affiliates.html');
+});
+</script>
+</body>
+</html>
